@@ -5,6 +5,9 @@
 
   <!-- CART ITEMS -->
   <div id="cart-page-items"></div>
+  <h5 class="fw-bold mt-4">You may also like</h5>
+<div id="recommend-box" class="row g-3"></div>
+
 
   <!-- SUMMARY -->
   <div id="cart-summary" class="mt-4 d-none">

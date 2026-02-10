@@ -256,4 +256,104 @@ body {
     background: #111;
     color: #fff;
   }
+  .cat-tab {
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  
+  .cat-tab.active {
+    background: #111;
+    color: #fff;
+  }
+  .filter-sidebar {
+    position: sticky;
+    top: 80px;
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    box-shadow: 0 6px 20px rgba(0,0,0,.05);
+  }
+  /* MOBILE FILTER DRAWER */
+.filter-drawer {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background: #fff;
+    z-index: 2000;
+    border-radius: 16px 16px 0 0;
+    padding: 16px;
+    transition: bottom 0.35s ease;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.15);
+  }
+  
+  .filter-drawer.open {
+    bottom: 0;
+  }
+  
+  .drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  
+  .drawer-header button {
+    border: none;
+    background: none;
+    font-size: 20px;
+  }
+  
+  .drawer-section {
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    .filter-drawer {
+      display: none;
+    }
+  }
+  .filter-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 1999;
+    display: none;
+  }
+  
+  .filter-overlay.show {
+    display: block;
+  }
+  .filter-chip {
+    padding: 6px 12px;
+    background: #f1f1f1;
+    border-radius: 20px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    animation: slideIn .25s ease;
+  }
+  
+  .filter-chip .remove {
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
   

@@ -1,0 +1,42 @@
+:root {
+  --brown: #3e2723;
+  --cream: #f5efe6;
+}
+
+body {
+  background: var(--cream);
+}
+
+.custom-nav {
+  background: var(--brown);
+}
+
+.hero-section {
+  background: linear-gradient(120deg, #3e2723, #111);
+  padding: 120px 0 80px;
+}
+
+.hero-img {
+  width: 260px;
+}
+
+.scroll-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+}
+
+.product-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 16px;
+  min-width: 180px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.footer {
+  background: #121212;
+  color: #aaa;
+  padding: 20px;
+}

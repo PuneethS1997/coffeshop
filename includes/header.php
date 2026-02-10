@@ -18,14 +18,14 @@ $BASE_URL = "/fifthgen";
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-nav">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="/indexp">FifthGen ☕</a>
+    <a class="navbar-brand fw-bold" href="<?= $BASE_URL ?>/index">FifthGen ☕</a>
     <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div id="nav" class="collapse navbar-collapse">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="/product">Shop</a></li>
-        <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= $BASE_URL ?>/product">Shop</a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= $BASE_URL ?>/login">Login</a></li>
         <li class="nav-item">
         <a href="cart" class="position-relative text-dark text-decoration-none">
             🛒

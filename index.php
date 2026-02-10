@@ -1,28 +1,32 @@
 <?php include 'includes/header.php'; ?>
 
-<section class="hero-section">
+<!-- HERO SECTION -->
+<section class="hero-section py-5">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-md-6 text-white">
         <h1 class="fw-bold">Freshly Roasted Coffee</h1>
-        <p>Premium beans delivered fast</p>
-        <a href="product" class="btn btn-warning">Shop Now</a>
+        <p class="lead">Premium beans delivered fast</p>
+        <a href="product" class="btn btn-warning btn-lg">Shop Now</a>
       </div>
+
       <div class="col-md-6 text-center">
-        <img 
-          src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" 
-          class="hero-img"
+        <img
+          src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80"
+          class="hero-img img-fluid"
           alt="Fresh Coffee">
       </div>
     </div>
   </div>
 </section>
 
+<!-- BEST SELLERS -->
 <section class="container my-5">
+
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h4 class="fw-bold">🔥 Best Sellers</h4>
 
-    <div>
+    <div class="d-none d-md-block">
       <button class="btn btn-outline-dark btn-sm me-1" onclick="scrollRow('left')">‹</button>
       <button class="btn btn-outline-dark btn-sm" onclick="scrollRow('right')">›</button>
     </div>
@@ -63,21 +67,38 @@
   ];
   ?>
 
-  <div class="scroll-row" id="bestSellerRow">
+  <div class="scroll-row d-flex gap-3" id="bestSellerRow">
     <?php foreach ($products as $product): ?>
-      <div class="product-card">
+      <div class="product-card text-center">
+
         <div class="product-img">
           <img src="<?= $product['img']; ?>" alt="<?= $product['name']; ?>">
         </div>
 
-        <h6><?= $product['name']; ?></h6>
-        <p>₹<?= $product['price']; ?></p>
+        <h6 class="mt-2 mb-1"><?= $product['name']; ?></h6>
+        <p class="fw-semibold mb-2">₹<?= $product['price']; ?></p>
 
+        <!-- Quantity Control -->
         <div class="qty-box d-flex align-items-center justify-content-center gap-2">
-          <button class="btn btn-outline-dark btn-sm qty-minus" data-id="<?= $product['id']; ?>">−</button>
-          <span class="qty-value" id="qty-<?= $product['id']; ?>">0</span>
-          <button class="btn btn-dark btn-sm qty-plus" data-id="<?= $product['id']; ?>">+</button>
+          <button
+            class="btn btn-outline-dark btn-sm qty-minus"
+            data-id="<?= $product['id']; ?>">
+            −
+          </button>
+
+          <span
+            class="qty-value"
+            id="qty-<?= $product['id']; ?>">
+            0
+          </span>
+
+          <button
+            class="btn btn-dark btn-sm qty-plus"
+            data-id="<?= $product['id']; ?>">
+            +
+          </button>
         </div>
+
       </div>
     <?php endforeach; ?>
   </div>

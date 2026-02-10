@@ -25,14 +25,12 @@
     <button class="btn btn-sm btn-light" onclick="closeCartDrawer()">✕</button>
   </div>
 
-  <div id="cart-items-list" class="cart-body"></div>
+  <!-- 🔥 THIS IS REQUIRED -->
+  <div id="cart-drawer-items" class="p-3"></div>
 
   <div class="cart-footer">
-    <div class="d-flex justify-content-between mb-2">
-      <strong>Total</strong>
-      <strong>₹<span id="drawer-total">0</span></strong>
-    </div>
-    <a href="checkout" class="btn btn-dark w-100">Checkout</a>
+    <strong>Total: ₹<span id="cart-drawer-total">0</span></strong>
+    <a href="checkout" class="btn btn-dark w-100 mt-2">Checkout</a>
   </div>
 </div>
 

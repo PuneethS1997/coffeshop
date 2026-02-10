@@ -568,4 +568,19 @@ if (searchInput) {
     document.querySelector(`.roast-filter[value="${roast}"]`).checked = false;
     saveAndSyncFilters();
   }
-      
+      // ================= AD SLIDER =================
+let slideIndex = 0;
+const slides = document.querySelectorAll(".ad-slide");
+const dots = document.querySelectorAll(".dot");
+
+function showSlide(i) {
+  slides.forEach((s, idx) => {
+    s.classList.toggle("active", idx === i);
+    dots[idx].classList.toggle("active", idx === i);
+  });
+}
+
+setInterval(() => {
+  slideIndex = (slideIndex + 1) % slides.length;
+  showSlide(slideIndex);
+}, 4000);

@@ -356,4 +356,158 @@ body {
       transform: translateY(0);
     }
   }
+  .hero-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #2b1e1e, #4a2f2f);
+    border-radius: 16px;
+    padding: 16px;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  .hero-banner img {
+    width: 140px;
+    border-radius: 12px;
+  }
+  
+  .hero-text p {
+    font-size: 14px;
+    opacity: .9;
+  }
+  .category-scroll {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  
+  .category-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .cat-card {
+    min-width: 90px;
+    text-align: center;
+    color: #000;
+    text-decoration: none;
+  }
+  
+  .cat-card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #f1f1f1;
+  }
+  
+  .cat-card span {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .deal-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+  }
+  
+  .deal-scroll img {
+    min-width: 220px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 14px;
+  }
+  .cat-card:hover img {
+    transform: scale(1.05);
+  }
+  
+  .cat-card img {
+    transition: .2s ease;
+  }
+  .ad-slider {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    height: 160px;
+  }
+  
+  .ad-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: .6s ease;
+  }
+  
+  .ad-slide.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .ad-slide img {
+    width: 160px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+  }
+  
+  .ad-content {
+    color: #fff;
+    max-width: 60%;
+  }
+  
+  .ad-content h3 {
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+  
+  .ad-content p {
+    font-size: 14px;
+    opacity: .9;
+  }
+  
+  /* Gradient overlay */
+  .ad-slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,.55), rgba(0,0,0,.15));
+    z-index: -1;
+  }
+  
+  /* Dots */
+  .ad-dots .dot {
+    width: 8px;
+    height: 8px;
+    background: #ccc;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 4px;
+  }
+  
+  .ad-dots .dot.active {
+    background: #000;
+  }
+  
+  /* Mobile */
+  @media (max-width: 576px) {
+    .ad-slider {
+      height: 140px;
+    }
+  
+    .ad-slide img {
+      width: 120px;
+    }
+  
+    .ad-content h3 {
+      font-size: 18px;
+    }
+  }
   

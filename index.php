@@ -54,6 +54,53 @@
   </div>
 </section>
 
+<section class="container my-4">
+  <div class="ad-slider" id="adSlider">
+
+    <div class="ad-slide active">
+      <div class="ad-content">
+        <h3>☕ Flat 30% OFF</h3>
+        <p>On Freshly Roasted Coffee</p>
+        <a href="category?type=beans" class="btn btn-light btn-sm">
+          Order Now
+        </a>
+      </div>
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80">
+    </div>
+
+    <div class="ad-slide">
+      <div class="ad-content">
+        <h3>🚀 Express Delivery</h3>
+        <p>Coffee at your door in minutes</p>
+        <a href="category?type=espresso" class="btn btn-light btn-sm">
+          Explore
+        </a>
+      </div>
+      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=900&q=80">
+    </div>
+
+    <div class="ad-slide">
+      <div class="ad-content">
+        <h3>🔥 Best Sellers</h3>
+        <p>Top rated by coffee lovers</p>
+        <a href="category?type=coldbrew" class="btn btn-light btn-sm">
+          Shop Now
+        </a>
+      </div>
+      <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=900&q=80">
+    </div>
+
+  </div>
+
+  <!-- DOTS -->
+  <div class="ad-dots text-center mt-2">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</section>
+
+
 
 <!-- BEST SELLERS -->
 <section class="container my-5">

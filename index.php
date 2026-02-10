@@ -20,6 +20,41 @@
   </div>
 </section>
 
+<!-- Category  -->
+<section class="container my-4">
+  <h5 class="fw-bold mb-3">☕ Shop by Category</h5>
+
+  <?php
+  $categories = [
+    ["slug"=>"beans","name"=>"Coffee Beans","img"=>"https://images.unsplash.com/photo-1511920170033-f8396924c348"],
+    ["slug"=>"ground","name"=>"Ground Coffee","img"=>"https://images.unsplash.com/photo-1509042239860-f550ce710b93"],
+    ["slug"=>"espresso","name"=>"Espresso","img"=>"https://images.unsplash.com/photo-1512568400610-62da28bc8a13"],
+    ["slug"=>"coldbrew","name"=>"Cold Brew","img"=>"https://images.unsplash.com/photo-1521302080334-4bebac2763a6"],
+    ["slug"=>"accessories","name"=>"Accessories","img"=>"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"],
+    ["slug"=>"beans","name"=>"Coffee Beans","img"=>"https://images.unsplash.com/photo-1511920170033-f8396924c348"],
+    ["slug"=>"ground","name"=>"Ground Coffee","img"=>"https://images.unsplash.com/photo-1509042239860-f550ce710b93"],
+    ["slug"=>"espresso","name"=>"Espresso","img"=>"https://images.unsplash.com/photo-1512568400610-62da28bc8a13"],
+    ["slug"=>"coldbrew","name"=>"Cold Brew","img"=>"https://images.unsplash.com/photo-1521302080334-4bebac2763a6"],
+    ["slug"=>"accessories","name"=>"Accessories","img"=>"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"],
+    ["slug"=>"beans","name"=>"Coffee Beans","img"=>"https://images.unsplash.com/photo-1511920170033-f8396924c348"],
+    ["slug"=>"ground","name"=>"Ground Coffee","img"=>"https://images.unsplash.com/photo-1509042239860-f550ce710b93"],
+    ["slug"=>"espresso","name"=>"Espresso","img"=>"https://images.unsplash.com/photo-1512568400610-62da28bc8a13"],
+    ["slug"=>"coldbrew","name"=>"Cold Brew","img"=>"https://images.unsplash.com/photo-1521302080334-4bebac2763a6"],
+    ["slug"=>"accessories","name"=>"Accessories","img"=>"https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"]
+  ];
+  ?>
+
+  <div class="category-scroll">
+    <?php foreach($categories as $cat): ?>
+      <a href="category?type=<?= $cat['slug']; ?>" class="category-card">
+        <img src="<?= $cat['img']; ?>?auto=format&fit=crop&w=300&q=80">
+        <span><?= $cat['name']; ?></span>
+      </a>
+    <?php endforeach; ?>
+  </div>
+</section>
+
+
 <!-- BEST SELLERS -->
 <section class="container my-5">
 

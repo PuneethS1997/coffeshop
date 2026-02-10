@@ -206,4 +206,54 @@ body {
     display: flex;
     align-items: center;
   }
+  .category-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+  
+  .category-scroll::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .category-card {
+    text-align: center;
+    text-decoration: none;
+    color: #111;
+    min-width: 90px;
+  }
+  
+  .category-card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 6px 14px rgba(0,0,0,.15);
+  }
+  
+  .category-card span {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .filter-bar {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+  }
+  
+  .filter-btn {
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+  }
+  
+  .filter-btn.active {
+    background: #111;
+    color: #fff;
+  }
   

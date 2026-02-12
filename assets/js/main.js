@@ -177,7 +177,9 @@ document.addEventListener("click", function (e) {
   }
 
   // SAVE
-  localStorage.setItem("cart", JSON.stringify(cart));
+  // localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("cart_" + CART_VERSION, JSON.stringify(cart));
+
 
   // 🔥 SYNC EVERYTHING
   updateQtyUI();
@@ -323,7 +325,9 @@ function updateCart(product, change) {
     cart.push({ ...product, qty: 1 });
   }
 
-  localStorage.setItem("cart", JSON.stringify(cart));
+  // localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("cart_" + CART_VERSION, JSON.stringify(cart));
+
 
   renderCartDrawer();
   updateCartCount();
@@ -355,7 +359,9 @@ function removeFromCart(id) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart = cart.filter(item => item.id !== id);
 
-  localStorage.setItem("cart", JSON.stringify(cart));
+  // localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("cart_" + CART_VERSION, JSON.stringify(cart));
+
   renderCartDrawer();
   updateCartCount?.();
 }

@@ -332,6 +332,48 @@
   </div>
 </section>
 
+<!-- PROMO BANNERS SECTION -->
+<!-- PROMO BANNERS --><!-- COFFEE PROMO SECTION -->
+<section class="container my-4">
+  <div class="promo-container p-3">
+
+    <div class="promo-scroll">
+
+      <!-- Card 1 -->
+      <div class="promo-card text-center">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=300&q=80"
+             class="promo-img mb-2" alt="Fresh Coffee">
+
+        <h6 class="fw-bold text-success">Fresh Brew Deals</h6>
+       <a href="category?type=coldbrew"> <button class="btn-coffee mt-2" >
+          Shop Now
+        </button>
+        </a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="promo-card text-center">
+        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=300&q=80"
+             class="promo-img mb-2" alt="Coffee Beans">
+
+        <h6 class="fw-bold">Buy 1</h6>
+        <h6 class="fw-bold text-success">Get 1 Free</h6>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="promo-card text-center">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=300&q=80"
+             class="promo-img mb-2" alt="Coffee Combo">
+
+        <h6 class="fw-bold">₹99 Coffee Corner</h6>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
 
 
 <!-- BEST SELLERS -->

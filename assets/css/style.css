@@ -235,6 +235,110 @@ body {
 
 
 
+/* OUTER CONTAINER */
+/* OUTER CONTAINER */
+/* OUTER CONTAINER */
+.promo-container {
+  background: linear-gradient(135deg, #F5EBDD, #EAD7C3);
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+  padding: 25px;
+}
+
+/* Side curved cut effect */
+.promo-container::before,
+.promo-container::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 100px;
+  background: #ffffff;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.promo-container::before { left: -25px; }
+.promo-container::after { right: -25px; }
+
+/* Layout */
+.promo-scroll {
+  display: flex;
+  gap: 25px;
+}
+
+/* Cards */
+.promo-card {
+  flex: 1;
+  min-width: 160px;
+  background: linear-gradient(180deg, #ffffff, #f3e6da);
+  border-radius: 22px;
+  padding: 20px;
+  transition: 0.3s ease;
+  text-align: center;
+  border: 1px solid #e0cfc2;
+}
+
+.promo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(75, 46, 43, 0.15);
+}
+
+/* Images */
+.promo-img {
+  width: 95px;
+  height: 95px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #6F4E37;
+  padding: 5px;
+  background: #fff;
+}
+
+/* Text Styling */
+.promo-card h6 {
+  color: #4B2E2B;
+}
+
+.text-success {
+  color: #6F4E37 !important;
+}
+
+/* Coffee Button */
+.btn-coffee {
+  background-color: #6F4E37;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 6px 18px;
+  transition: 0.3s ease;
+}
+
+.btn-coffee:hover {
+  background-color: #4B2E2B;
+  color: #fff;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .promo-scroll {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+
+  .promo-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .promo-card {
+    flex: 0 0 auto;
+    min-width: 170px;
+  }
+}
+
+
 
 
 

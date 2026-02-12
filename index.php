@@ -209,18 +209,36 @@
 
     <?php foreach ($quickProducts as $p): ?>
       <div class="quick-card">
-        <img src="<?= $p['img']; ?>" alt="<?= $p['name']; ?>">
-        <div class="quick-info">
-          <small class="fw-bold"><?= $p['name']; ?></small>
-          <span>₹<?= $p['price']; ?></span>
+          <img src="<?= $p['img']; ?>" alt="<?= $p['name']; ?>">
+
+          <div class="quick-info">
+            <small class="fw-bold"><?= $p['name']; ?></small>
+            <span>₹<?= $p['price']; ?></span>
+          </div>
+
+          <!-- Cart Action -->
+          <div class="quick-action" id="cart-action-<?= $p['id']; ?>">
+
+            <!-- Add Button -->
+            <button class="btn btn-dark btn-sm add-to-cart-btn"
+                    data-id="<?= $p['id']; ?>">
+              Add to Cart
+            </button>
+
+            <!-- Quantity Box -->
+            <div class="quick-qty d-none align-items-center gap-2">
+              <button class="btn btn-outline-dark btn-sm qty-minus"
+                      data-id="<?= $p['id']; ?>">−</button>
+
+              <span id="qty-<?= $p['id']; ?>">0</span>
+
+              <button class="btn btn-dark btn-sm qty-plus"
+                      data-id="<?= $p['id']; ?>">+</button>
+            </div>
+
+          </div>
         </div>
 
-        <div class="quick-qty">
-          <button class="btn btn-outline-dark btn-sm qty-minus" data-id="<?= $p['id']; ?>">−</button>
-          <span id="qty-<?= $p['id']; ?>">0</span>
-          <button class="btn btn-dark btn-sm qty-plus" data-id="<?= $p['id']; ?>">+</button>
-        </div>
-      </div>
     <?php endforeach; ?>
 
   </div>
@@ -238,78 +256,78 @@
 
     <!-- ========= ESPRESSO ========= -->
     <div class="flash-card">
-      <span class="discount-badge">30% OFF</span>
-      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80">
-      <h6>Espresso</h6>
+        <span class="discount-badge">30% OFF</span>
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80">
+        <h6>Espresso</h6>
 
-      <p class="price">
-        <span class="new">₹399</span>
-        <span class="old">₹549</span>
-      </p>
+        <p class="price">
+          <span class="new">₹399</span>
+          <span class="old">₹549</span>
+        </p>
 
-      <!-- Quantity Control -->
-      <div class="qty-box d-flex align-items-center justify-content-center gap-2 mt-2">
+        <!-- Cart Action -->
+        <div class="cart-action mt-2" id="cart-action-15">
 
-        <button
-          class="btn btn-outline-dark btn-sm qty-minus"
-          data-id="15"
-          data-name="Espresso"
-          data-price="399"
-          data-img="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80">
-          −
-        </button>
+          <!-- Add Button -->
+          <button class="btn btn-dark btn-sm add-to-cart-btn"
+                  data-id="15">
+            Add to Cart
+          </button>
 
-        <span class="qty-value" id="qty-3">0</span>
+          <!-- Quantity Box -->
+          <div class="qty-box d-none align-items-center justify-content-center gap-2">
 
-        <button
-          class="btn btn-dark btn-sm qty-plus"
-          data-id="15"
-          data-name="Espresso"
-          data-price="399"
-          data-img="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80">
-          +
-        </button>
+            <button class="btn btn-outline-dark btn-sm qty-minus"
+                    data-id="15">−</button>
 
+            <span class="qty-value" id="qty-15">0</span>
+
+            <button class="btn btn-dark btn-sm qty-plus"
+                    data-id="15">+</button>
+
+          </div>
+
+        </div>
       </div>
-    </div>
+
 
 
     <!-- ========= COLD BREW ========= -->
     <div class="flash-card">
-      <span class="discount-badge">25% OFF</span>
-      <img src="https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=400&q=80">
-      <h6>Cold Brew</h6>
+        <span class="discount-badge">25% OFF</span>
+        <img src="https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=400&q=80">
+        <h6>Cold Brew</h6>
 
-      <p class="price">
-        <span class="new">₹299</span>
-        <span class="old">₹399</span>
-      </p>
+        <p class="price">
+          <span class="new">₹299</span>
+          <span class="old">₹399</span>
+        </p>
 
-      <!-- Quantity Control -->
-      <div class="qty-box d-flex align-items-center justify-content-center gap-2 mt-2">
+        <!-- Cart Action -->
+        <div class="cart-action mt-2" id="cart-action-16">
 
-        <button
-          class="btn btn-outline-dark btn-sm qty-minus"
-          data-id="16"
-          data-name="Cold Brew"
-          data-price="299"
-          data-img="https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=400&q=80">
-          −
-        </button>
+          <!-- Add Button -->
+          <button class="btn btn-dark btn-sm add-to-cart-btn"
+                  data-id="16">
+            Add to Cart
+          </button>
 
-        <span class="qty-value" id="qty-2">0</span>
+          <!-- Quantity Box -->
+          <div class="qty-box d-none align-items-center justify-content-center gap-2">
 
-        <button
-          class="btn btn-dark btn-sm qty-plus"
-          data-id="16"
-          data-name="Cold Brew"
-          data-price="299"
-          data-img="https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=400&q=80">
-          +
-        </button>
+            <button class="btn btn-outline-dark btn-sm qty-minus"
+                    data-id="16">−</button>
 
+            <span class="qty-value" id="qty-16">0</span>
+
+            <button class="btn btn-dark btn-sm qty-plus"
+                    data-id="16">+</button>
+
+          </div>
+
+        </div>
       </div>
-    </div>
+
 
   </div>
 </section>
@@ -331,61 +349,61 @@
   <?php
   $products = [
     [
-      "id" => 5,
+      "id" => 21,
       "name" => "Dark Roast",
       "price" => 499,
       "img" => "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=400&q=80"
     ],
     [
-      "id" => 6,
+      "id" => 22,
       "name" => "Medium Roast",
       "price" => 459,
       "img" => "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=400&q=80"
     ],
     [
-      "id" => 7,
+      "id" => 23,
       "name" => "Light Roast",
       "price" => 429,
       "img" => "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=400&q=80"
     ],
     [
-      "id" => 8,
+      "id" => 24,
       "name" => "Espresso Blend",
       "price" => 549,
       "img" => "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80"
     ],
     [
-      "id" => 9,
+      "id" => 25,
       "name" => "Arabica Beans",
       "price" => 599,
       "img" => "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=400&q=80"
     ],
     [
-      "id" => 10,
+      "id" => 26,
       "name" => "Dark Roast",
       "price" => 499,
       "img" => "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=400&q=80"
     ],
     [
-      "id" => 11,
+      "id" => 27,
       "name" => "Medium Roast",
       "price" => 459,
       "img" => "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=400&q=80"
     ],
     [
-      "id" => 12,
+      "id" => 28,
       "name" => "Light Roast",
       "price" => 429,
       "img" => "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=400&q=80"
     ],
     [
-      "id" => 13,
+      "id" => 29,
       "name" => "Espresso Blend",
       "price" => 549,
       "img" => "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80"
     ],
     [
-      "id" => 14,
+      "id" => 20,
       "name" => "Arabica Beans",
       "price" => 599,
       "img" => "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=400&q=80"
@@ -404,26 +422,28 @@
         <h6 class="mt-2 mb-1"><?= $product['name']; ?></h6>
         <p class="fw-semibold mb-2">₹<?= $product['price']; ?></p>
 
-        <!-- Quantity Control -->
-        <div class="qty-box d-flex align-items-center justify-content-center gap-2">
-          <button
-            class="btn btn-outline-dark btn-sm qty-minus"
-            data-id="<?= $product['id']; ?>">
-            −
+   
+
+        <div class="quick-action" id="cart-action-<?= $product['id']; ?>">
+
+          <!-- Add Button -->
+          <button class="btn btn-dark btn-sm add-to-cart-btn"
+                  data-id="<?= $product['id']; ?>">
+            Add to Cart
           </button>
 
-          <span
-            class="qty-value"
-            id="qty-<?= $product['id']; ?>">
-            0
-          </span>
+          <!-- Quantity Box -->
+          <div class="quick-qty d-none align-items-center gap-2">
+            <button class="btn btn-outline-dark btn-sm qty-minus"
+                    data-id="<?= $product['id']; ?>">−</button>
 
-          <button
-            class="btn btn-dark btn-sm qty-plus"
-            data-id="<?= $product['id']; ?>">
-            +
-          </button>
-        </div>
+            <span id="qty-<?= $product['id']; ?>">0</span>
+
+            <button class="btn btn-dark btn-sm qty-plus"
+                    data-id="<?= $product['id']; ?>">+</button>
+          </div>
+
+          </div>
 
       </div>
     <?php endforeach; ?>

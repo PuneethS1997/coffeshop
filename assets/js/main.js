@@ -25,7 +25,28 @@ const PRODUCTS = {
     name: "Latte",
     price: 150,
     img: "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=200&q=80"
-  }
+  },
+  15: {
+    name: "Espresso",
+    price: 399,
+    img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80"
+  },
+  16: {
+    name: "Cold Brew",
+    price: 299,
+    img: "https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=400&q=80"
+  },
+  21: { name: "Dark Roast", price: 499, img: "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=200&q=80" },
+  22: { name: "Medium Roast", price: 459, img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=200&q=80" },
+  23: { name: "Light Roast", price: 429, img: "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=200&q=80" },
+  24: { name: "Espresso Blend", price: 549, img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=200&q=80" },
+  25: { name: "Arabica Beans", price: 599, img: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=200&q=80" },
+  26: { name: "Dark Roast", price: 499, img: "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=200&q=80" },
+  27: { name: "Medium Roast", price: 459, img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=200&q=80" },
+  28: { name: "Light Roast", price: 429, img: "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=200&q=80" },
+  29: { name: "Espresso Blend", price: 549, img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=200&q=80" },
+  20: { name: "Arabica Beans", price: 599, img: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=200&q=80" },
+  
 };
 
 
@@ -33,12 +54,15 @@ const PRODUCTS = {
 
 
 // ================= CART =================
-let cart = JSON.parse(localStorage.getItem("cart")) || {};
+const CART_VERSION = "v2"; // change when cart logic structure changes
+
+let cart = JSON.parse(localStorage.getItem("cart_" + CART_VERSION)) || {};
 
 // ================= HELPERS =================
 function saveCart() {
-  localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("cart_" + CART_VERSION, JSON.stringify(cart));
 }
+
 
 function getTotalCount() {
   return Object.values(cart).reduce((a, b) => a + b, 0);
@@ -81,7 +105,7 @@ function updateQtyUI() {
     if (!wrapper) continue;
 
     const addBtn = wrapper.querySelector(".add-to-cart-btn");
-    const qtyBox = wrapper.querySelector(".qty-box");
+    const qtyBox = wrapper.querySelector(".qty-box, .quick-qty");
 
     const qty = cart[id] || 0;
 

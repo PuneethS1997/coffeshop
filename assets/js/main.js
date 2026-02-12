@@ -54,7 +54,7 @@ const PRODUCTS = {
 
 
 // ================= CART =================
-const CART_VERSION = "v2"; // change when cart logic structure changes
+const CART_VERSION = "v3"; // change when cart logic structure changes
 
 let cart = JSON.parse(localStorage.getItem("cart_" + CART_VERSION)) || {};
 
@@ -249,10 +249,17 @@ function renderCartPage() {
     summary.classList.remove("d-none");
     empty.classList.add("d-none");
     totalEl.innerText = total;
+  
+    // ✅ Save total for checkout
+    localStorage.setItem("checkout_total", total);
+  
   } else {
     summary.classList.add("d-none");
     empty.classList.remove("d-none");
+  
+    localStorage.removeItem("checkout_total");
   }
+  
 }
 function getCart() {
   const cart = JSON.parse(localStorage.getItem("cart"));

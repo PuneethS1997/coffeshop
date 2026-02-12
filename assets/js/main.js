@@ -655,12 +655,16 @@ setInterval(() => {
 
 // 🔥 Deal Countdown Timer
 
+// 🔥 Deal Countdown Timer
 document.addEventListener("DOMContentLoaded", function () {
+
+  const countdown = document.getElementById("countdown");
+
+  // 🚫 Stop if countdown doesn't exist on page
+  if (!countdown) return;
 
   // Set deal end time (1 hour from now)
   const endTime = new Date().getTime() + (60 * 60 * 1000);
-
-  const countdown = document.getElementById("countdown");
 
   function updateCountdown() {
     const now = new Date().getTime();
@@ -671,7 +675,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    const hours = Math.floor((distance / (1000 * 60 * 60)));
+    const hours = Math.floor(distance / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
@@ -682,9 +686,10 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
   }
 
-  setInterval(updateCountdown, 1000);
   updateCountdown();
+  setInterval(updateCountdown, 1000);
 });
+
 
 
 // 🔥 Flash Sale Timer (3 hours)
@@ -747,16 +752,22 @@ startFlashTimer();
 document.addEventListener("DOMContentLoaded", function () {
 
   const slides = document.querySelectorAll(".hero-slide");
+
+  // 🚫 Stop if no slides exist
+  if (slides.length === 0) return;
+
   let current = 0;
 
   function nextSlide() {
     slides[current].classList.remove("active");
+
     current = (current + 1) % slides.length;
+
     slides[current].classList.add("active");
   }
 
   setInterval(nextSlide, 4000);
-
 });
+
 
 

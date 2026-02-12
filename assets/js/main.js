@@ -13,8 +13,24 @@ const PRODUCTS = {
   7: { name: "Medium Roast", price: 459, img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=200&q=80" },
   8: { name: "Light Roast", price: 429, img: "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=200&q=80" },
   9: { name: "Espresso Blend", price: 549, img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=200&q=80" },
-  10: { name: "Arabica Beans", price: 599, img: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=200&q=80" }
+  10: { name: "Arabica Beans", price: 599, img: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=200&q=80" },
+  "101": {
+    id: "101",
+    name: "Espresso",
+    price: 120,
+    img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=200&q=80"
+  },
+  "102": {
+    id: "102",
+    name: "Latte",
+    price: 150,
+    img: "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=200&q=80"
+  }
 };
+
+
+
+
 
 // ================= CART =================
 let cart = JSON.parse(localStorage.getItem("cart")) || {};
@@ -30,11 +46,18 @@ function getTotalCount() {
 
 function getTotalPrice() {
   let total = 0;
+
   for (let id in cart) {
-    total += PRODUCTS[id].price * cart[id];
+    const product = PRODUCTS[id];
+
+    if (!product) continue; // 🔥 prevent crash
+
+    total += product.price * cart[id];
   }
+
   return total;
 }
+
 
 // ================= UI UPDATES =================
 function updateNavbarCartCount() {
@@ -42,10 +65,35 @@ function updateNavbarCartCount() {
   if (el) el.innerText = getTotalCount();
 }
 
+// function updateQtyUI() {
+//   for (let id in PRODUCTS) {
+//     const el = document.getElementById("qty-" + id);
+//     if (el) el.innerText = cart[id] || 0;
+//   }
+// }
+
 function updateQtyUI() {
   for (let id in PRODUCTS) {
-    const el = document.getElementById("qty-" + id);
-    if (el) el.innerText = cart[id] || 0;
+
+    const wrapper = document.getElementById("cart-action-" + id);
+    const qtyEl = document.getElementById("qty-" + id);
+
+    if (!wrapper) continue;
+
+    const addBtn = wrapper.querySelector(".add-to-cart-btn");
+    const qtyBox = wrapper.querySelector(".qty-box");
+
+    const qty = cart[id] || 0;
+
+    if (qty > 0) {
+      addBtn?.classList.add("d-none");
+      qtyBox?.classList.remove("d-none");
+      if (qtyEl) qtyEl.innerText = qty;
+    } else {
+      addBtn?.classList.remove("d-none");
+      qtyBox?.classList.add("d-none");
+      if (qtyEl) qtyEl.innerText = 0;
+    }
   }
 }
 
@@ -75,38 +123,47 @@ function scrollRow(direction) {
 
 // ================= CLICK HANDLER =================
 document.addEventListener("click", function (e) {
+
+  const addBtn = e.target.closest(".add-to-cart-btn");
   const plus = e.target.closest(".qty-plus");
   const minus = e.target.closest(".qty-minus");
 
-  if (!plus && !minus) return;
+  if (!addBtn && !plus && !minus) return;
 
-  const id = (plus || minus).dataset.id;
+  let id;
 
+  // ADD BUTTON CLICK
+  if (addBtn) {
+    id = addBtn.dataset.id;
+    cart[id] = 1;
+  }
+
+  // PLUS CLICK
   if (plus) {
+    id = plus.dataset.id;
     cart[id] = (cart[id] || 0) + 1;
   }
 
+  // MINUS CLICK
   if (minus) {
+    id = minus.dataset.id;
     if (!cart[id]) return;
     cart[id]--;
     if (cart[id] === 0) delete cart[id];
   }
 
-
-
   // SAVE
   localStorage.setItem("cart", JSON.stringify(cart));
 
-  // 🔥 IMPORTANT UI SYNC
-  updateQtyUI();            // home cards
-  updateNavbarCartCount();  // navbar
-  updateMobileCartBar();    // mobile sticky
+  // 🔥 SYNC EVERYTHING
+  updateQtyUI();
+  updateNavbarCartCount();
+  updateMobileCartBar();
   renderCartDrawer();
-  renderCartPage();         // 🛒 CART PAGE LIVE UPDATE
-
-  // 👉 ADD THIS LINE
+  renderCartPage();
   renderRecommendations();
 });
+
 
 // ================= INIT =================
 document.addEventListener("DOMContentLoaded", function () {
@@ -598,36 +655,36 @@ setInterval(() => {
 
 // 🔥 Deal Countdown Timer
 
-function startCountdown(endTime) {
-  const countdownEl = document.getElementById("countdown");
+document.addEventListener("DOMContentLoaded", function () {
 
-  function updateTimer() {
+  // Set deal end time (1 hour from now)
+  const endTime = new Date().getTime() + (60 * 60 * 1000);
+
+  const countdown = document.getElementById("countdown");
+
+  function updateCountdown() {
     const now = new Date().getTime();
     const distance = endTime - now;
 
-    if (distance < 0) {
-      countdownEl.innerHTML = "<span>Deal Expired</span>";
+    if (distance <= 0) {
+      countdown.innerHTML = "<div>Expired</div>";
       return;
     }
 
-    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((distance / 1000 / 60) % 60);
-    const seconds = Math.floor((distance / 1000) % 60);
+    const hours = Math.floor((distance / (1000 * 60 * 60)));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    countdownEl.innerHTML = `
-      <span>${hours.toString().padStart(2, "0")}</span> :
-      <span>${minutes.toString().padStart(2, "0")}</span> :
-      <span>${seconds.toString().padStart(2, "0")}</span>
+    countdown.innerHTML = `
+      <div>${hours}h</div>
+      <div>${minutes}m</div>
+      <div>${seconds}s</div>
     `;
   }
 
-  updateTimer();
-  setInterval(updateTimer, 1000);
-}
-
-// Set deal for next 6 hours
-const dealEndTime = new Date().getTime() + (6 * 60 * 60 * 1000);
-startCountdown(dealEndTime);
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+});
 
 
 // 🔥 Flash Sale Timer (3 hours)

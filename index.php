@@ -34,28 +34,53 @@
 
 
 <!-- time counter banner -->
+<!-- FLASH DEAL BANNER -->
+
+
 <section class="container my-4">
-  <div class="deal-banner p-4 rounded-4 d-flex align-items-center justify-content-between flex-wrap">
-    
-    <div class="deal-content">
-      <span class="badge bg-danger mb-2">🔥 Limited Offer</span>
-      <h5 class="fw-bold mb-1">Espresso – 30% OFF</h5>
-      <p class="mb-2 text-muted">Grab it before the deal ends!</p>
-      
-      <div id="countdown" class="countdown-box"></div>
+  <div class="deal-card">
 
-      <button class="btn btn-dark mt-3">Buy Now</button>
+    <!-- LEFT CONTENT -->
+    <div class="deal-left">
+      <span class="deal-tag">🔥 LIMITED TIME</span>
+      <h2 class="deal-title">Espresso Coffee</h2>
+      <p class="deal-offer">Flat <span>30% OFF</span></p>
+
+      <!-- Countdown -->
+      <div id="countdown" class="countdown"></div>
+
+      <!-- Quantity Control -->
+      <div class="cart-action" id="cart-action-101">
+
+      <!-- Add Button -->
+      <button class="btn btn-dark add-to-cart-btn"
+              data-id="101">
+        Add to Cart
+      </button>
+
+      <!-- Quantity Box -->
+      <div class="qty-box d-none align-items-center gap-2">
+        <button class="btn btn-outline-dark btn-sm qty-minus"
+                data-id="101">−</button>
+
+        <span class="qty-value" id="qty-101">0</span>
+
+        <button class="btn btn-dark btn-sm qty-plus"
+                data-id="101">+</button>
+      </div>
+
+  </div>
+
+
+    <!-- RIGHT PRODUCT IMAGE -->
+    <div class="deal-right">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=500&q=80"
+           alt="Espresso">
     </div>
-
-    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80"
-         class="deal-img"
-         alt="Deal Product">
-         <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80"
-         class="deal-img"
-         alt="Deal Product">
 
   </div>
 </section>
+
 
 
 <!-- Category  -->

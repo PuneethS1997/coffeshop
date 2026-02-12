@@ -114,23 +114,21 @@ body {
 
 /* ===== SECTION WIDTH FIX (Desktop not XXL) ===== */
 
+/* CONTAINER WIDTH CONTROL */
 .container {
   max-width: 1140px !important;
 }
 
-/* ===== DEAL CARD ===== */
-
+/* DEAL CARD */
 .deal-card {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: linear-gradient(135deg, #2a1a12, #120c08);
   border-radius: 28px;
   padding: 60px;
-  overflow: hidden;
   box-shadow: 0 30px 70px rgba(0,0,0,0.4);
-  min-height: 420px;
+  overflow: hidden;
 }
 
 /* LEFT SIDE */
@@ -139,24 +137,10 @@ body {
   max-width: 480px;
 }
 
-.deal-tag {
-  background: linear-gradient(45deg,#d4af37,#f5d77a);
-  color: #1a120d;
-  padding: 6px 16px;
-  border-radius: 30px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
 .deal-title {
   font-size: 38px;
-  margin-top: 18px;
   font-weight: 700;
-}
-
-.deal-offer {
-  margin-top: 10px;
-  font-size: 18px;
+  margin-top: 18px;
 }
 
 .deal-offer span {
@@ -164,17 +148,16 @@ body {
   font-weight: 700;
 }
 
-/* PRICE */
 .deal-price {
   font-size: 26px;
-  margin-top: 12px;
   font-weight: 700;
+  margin-top: 12px;
 }
 
 .deal-price del {
-  margin-left: 10px;
   color: #aaa;
   font-size: 16px;
+  margin-left: 10px;
 }
 
 /* COUNTDOWN */
@@ -184,12 +167,22 @@ body {
   margin-top: 20px;
 }
 
-.countdown div {
-  background: rgba(255,255,255,0.05);
-  padding: 8px 14px;
-  border-radius: 10px;
-  font-size: 14px;
-  border: 1px solid rgba(212,175,55,0.3);
+/* BUTTON */
+.cart-action {
+  margin-top: 25px;   /* 👈 keeps button inside section */
+}
+
+.add-to-cart-btn {
+  padding: 12px 26px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background: linear-gradient(45deg,#d4af37,#f5d77a);
+  color: #1a120d;
+  border: none;
 }
 
 /* IMAGE */
@@ -200,61 +193,48 @@ body {
   box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
-/* BUTTON */
-.add-to-cart-btn {
-  padding: 12px 26px;
-  border-radius: 30px;
-  font-weight: 600;
-  margin-top: 25px;
-  transition: 0.3s;
-}
-
-.add-to-cart-btn:hover {
-  background: linear-gradient(45deg,#d4af37,#f5d77a);
-  color: #1a120d;
-  border: none;
-}
-
-/* ===== MOBILE DESIGN ===== */
-
+/* ===== MOBILE FIX ===== */
+/* ===== MOBILE LAYOUT IMPROVEMENT ===== */
 @media (max-width: 768px) {
 
   .deal-card {
+    display: flex;
     flex-direction: column;
-    padding: 30px 20px 100px;
+    padding: 30px 20px;
     text-align: center;
   }
 
-  .deal-title {
-    font-size: 26px;
+  /* Reorder elements */
+  .deal-left {
+    order: 1;
   }
 
-  .deal-right img {
+  .deal-right {
+    order: 2;
+    margin-top: 25px;
+  }
+
+  .cart-action {
+    order: 3;              /* 👈 moves button BELOW image */
     margin-top: 25px;
     width: 100%;
   }
 
-  /* 🔥 Sticky Add To Cart While Scrolling */
-  .cart-action {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #120c08;
-    padding: 15px 20px;
-    box-shadow: 0 -5px 25px rgba(0,0,0,0.5);
-    z-index: 999;
+  .deal-right img {
+    width: 100%;
+    border-radius: 20px;
   }
 
   .add-to-cart-btn {
     width: 100%;
+    padding: 14px;
+    font-size: 16px;
   }
 
-  /* Prevent content hidden behind sticky */
-  body {
-    padding-bottom: 90px;
-  }
 }
+
+
+
 
 
 

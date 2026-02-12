@@ -43,47 +43,49 @@
     <!-- LEFT CONTENT -->
     <div class="deal-left">
       <span class="deal-tag">🔥 LIMITED TIME</span>
+
       <h2 class="deal-title">Espresso Coffee</h2>
+
       <p class="deal-offer">Flat <span>30% OFF</span></p>
+
+      <!-- PRICE -->
       <div class="deal-price">
         ₹299 <del>₹399</del>
       </div>
 
-
       <!-- Countdown -->
       <div id="countdown" class="countdown"></div>
 
-      <!-- Quantity Control -->
+      <!-- Quantity + Cart -->
       <div class="cart-action" id="cart-action-101">
 
-      <!-- Add Button -->
-      <button class="btn btn-dark add-to-cart-btn"
-              data-id="101">
-        Add to Cart
-      </button>
+        <button class="btn btn-dark add-to-cart-btn"
+                data-id="101">
+          Add to Cart
+        </button>
 
-      <!-- Quantity Box -->
-      <div class="qty-box d-none align-items-center gap-2">
-        <button class="btn btn-outline-dark btn-sm qty-minus"
-                data-id="101">−</button>
+        <div class="qty-box d-none align-items-center gap-2">
+          <button class="btn btn-outline-dark btn-sm qty-minus"
+                  data-id="101">−</button>
 
-        <span class="qty-value" id="qty-101">0</span>
+          <span class="qty-value" id="qty-101">0</span>
 
-        <button class="btn btn-dark btn-sm qty-plus"
-                data-id="101">+</button>
+          <button class="btn btn-dark btn-sm qty-plus"
+                  data-id="101">+</button>
+        </div>
+
       </div>
-
-  </div>
-
+    </div>
 
     <!-- RIGHT PRODUCT IMAGE -->
     <div class="deal-right">
-      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=500&q=80"
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80"
            alt="Espresso">
     </div>
 
   </div>
 </section>
+
 
 
 

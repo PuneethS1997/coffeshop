@@ -112,58 +112,51 @@ body {
 }
 
 
-/* ===== LUXURY COFFEE DEAL CARD ===== */
+/* ===== SECTION WIDTH FIX (Desktop not XXL) ===== */
+
+.container {
+  max-width: 1140px !important;
+}
+
+/* ===== DEAL CARD ===== */
 
 .deal-card {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: radial-gradient(circle at top left, #3b2416, #1a120d 60%);
-  border-radius: 30px;
+  background: linear-gradient(135deg, #2a1a12, #120c08);
+  border-radius: 28px;
   padding: 60px;
   overflow: hidden;
-  box-shadow: 0 40px 80px rgba(0,0,0,0.4);
-  min-height: 480px;
-}
-
-/* Gold Glow Effect */
-.deal-card::before {
-  content: "";
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(212,175,55,0.15), transparent 70%);
-  top: -100px;
-  left: -100px;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.4);
+  min-height: 420px;
 }
 
 /* LEFT SIDE */
 .deal-left {
   color: #fff;
-  z-index: 2;
-  max-width: 500px;
+  max-width: 480px;
 }
 
 .deal-tag {
-  background: linear-gradient(45deg, #d4af37, #f5d77a);
+  background: linear-gradient(45deg,#d4af37,#f5d77a);
   color: #1a120d;
   padding: 6px 16px;
   border-radius: 30px;
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 1px;
 }
 
 .deal-title {
-  font-size: 42px;
+  font-size: 38px;
+  margin-top: 18px;
   font-weight: 700;
-  margin-top: 20px;
 }
 
 .deal-offer {
-  font-size: 20px;
   margin-top: 10px;
+  font-size: 18px;
 }
 
 .deal-offer span {
@@ -171,21 +164,20 @@ body {
   font-weight: 700;
 }
 
-/* PRICE STYLE */
+/* PRICE */
 .deal-price {
-  font-size: 28px;
+  font-size: 26px;
+  margin-top: 12px;
   font-weight: 700;
-  margin-top: 15px;
-  color: #fff;
 }
 
 .deal-price del {
-  color: #aaa;
   margin-left: 10px;
-  font-size: 18px;
+  color: #aaa;
+  font-size: 16px;
 }
 
-/* Countdown */
+/* COUNTDOWN */
 .countdown {
   display: flex;
   gap: 12px;
@@ -194,44 +186,33 @@ body {
 
 .countdown div {
   background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(212,175,55,0.3);
-  padding: 10px 14px;
-  border-radius: 12px;
+  padding: 8px 14px;
+  border-radius: 10px;
   font-size: 14px;
+  border: 1px solid rgba(212,175,55,0.3);
 }
 
-/* RIGHT SIDE IMAGE */
+/* IMAGE */
 .deal-right img {
-  width: 380px;
-  border-radius: 24px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  width: 350px;
+  max-width: 100%;
+  border-radius: 22px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
-/* CART ACTION */
-.cart-action {
-  margin-top: 25px;
-}
-
-/* LUXURY BUTTON */
+/* BUTTON */
 .add-to-cart-btn {
-  padding: 12px 28px;
+  padding: 12px 26px;
   border-radius: 30px;
   font-weight: 600;
-  transition: all 0.3s ease;
+  margin-top: 25px;
+  transition: 0.3s;
 }
 
 .add-to-cart-btn:hover {
-  background: linear-gradient(45deg, #d4af37, #f5d77a);
+  background: linear-gradient(45deg,#d4af37,#f5d77a);
   color: #1a120d;
   border: none;
-}
-
-/* QTY BOX */
-.qty-box {
-  background: rgba(255,255,255,0.05);
-  border-radius: 30px;
-  padding: 6px 15px;
-  color: #fff;
 }
 
 /* ===== MOBILE DESIGN ===== */
@@ -240,37 +221,38 @@ body {
 
   .deal-card {
     flex-direction: column;
-    padding: 30px 20px 120px;
+    padding: 30px 20px 100px;
     text-align: center;
   }
 
   .deal-title {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .deal-right img {
-    width: 100%;
     margin-top: 25px;
+    width: 100%;
   }
 
-  /* FIXED ADD TO CART AT BOTTOM */
+  /* 🔥 Sticky Add To Cart While Scrolling */
   .cart-action {
     position: fixed;
-    bottom: 15px;
-    left: 15px;
-    right: 15px;
-    background: #1a120d;
-    padding: 15px;
-    border-radius: 20px;
-    box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #120c08;
+    padding: 15px 20px;
+    box-shadow: 0 -5px 25px rgba(0,0,0,0.5);
+    z-index: 999;
   }
 
   .add-to-cart-btn {
     width: 100%;
   }
 
-  .qty-box {
-    justify-content: center;
+  /* Prevent content hidden behind sticky */
+  body {
+    padding-bottom: 90px;
   }
 }
 

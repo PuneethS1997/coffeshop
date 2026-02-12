@@ -8,6 +8,10 @@ $products = [
   ["id"=>2,"name"=>"Medium Roast","price"=>459,"cat"=>"beans","img"=>"https://images.unsplash.com/photo-1541167760496-1628856ab772"],
   ["id"=>3,"name"=>"Espresso Blend","price"=>549,"cat"=>"espresso","img"=>"https://images.unsplash.com/photo-1509042239860-f550ce710b93"],
   ["id"=>4,"name"=>"Cold Brew Pack","price"=>399,"cat"=>"coldbrew","img"=>"https://images.unsplash.com/photo-1521302080334-4bebac2763a6"],
+  ["id"=>5,"name"=>"Dark Roast","price"=>499,"cat"=>"beans","img"=>"https://images.unsplash.com/photo-1511920170033-f8396924c348"],
+  ["id"=>6,"name"=>"Medium Roast","price"=>459,"cat"=>"beans","img"=>"https://images.unsplash.com/photo-1541167760496-1628856ab772"],
+  ["id"=>7,"name"=>"Espresso Blend","price"=>549,"cat"=>"espresso","img"=>"https://images.unsplash.com/photo-1509042239860-f550ce710b93"],
+  ["id"=>8,"name"=>"Cold Brew Pack","price"=>399,"cat"=>"coldbrew","img"=>"https://images.unsplash.com/photo-1521302080334-4bebac2763a6"],
 ];
 ?>
 

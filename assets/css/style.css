@@ -112,135 +112,168 @@ body {
 }
 
 
-/* ================= DEAL CARD ================= */
+/* ===== LUXURY COFFEE DEAL CARD ===== */
 
 .deal-card {
-  background: linear-gradient(135deg, #fff5f0, #ffe9e0);
-  border-radius: 25px;
-  padding: 30px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  background: radial-gradient(circle at top left, #3b2416, #1a120d 60%);
+  border-radius: 30px;
+  padding: 60px;
   overflow: hidden;
-  position: relative;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+  min-height: 480px;
 }
 
-/* Left Side */
+/* Gold Glow Effect */
+.deal-card::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(212,175,55,0.15), transparent 70%);
+  top: -100px;
+  left: -100px;
+}
+
+/* LEFT SIDE */
 .deal-left {
-  flex: 1;
+  color: #fff;
+  z-index: 2;
+  max-width: 500px;
 }
 
 .deal-tag {
-  background: #ff4d4f;
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 50px;
-  font-size: 13px;
+  background: linear-gradient(45deg, #d4af37, #f5d77a);
+  color: #1a120d;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-size: 12px;
   font-weight: 600;
-  display: inline-block;
+  letter-spacing: 1px;
 }
 
 .deal-title {
+  font-size: 42px;
   font-weight: 700;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .deal-offer {
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .deal-offer span {
-  color: #ff4d4f;
-  font-size: 26px;
+  color: #d4af37;
   font-weight: 700;
+}
+
+/* PRICE STYLE */
+.deal-price {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 15px;
+  color: #fff;
+}
+
+.deal-price del {
+  color: #aaa;
+  margin-left: 10px;
+  font-size: 18px;
 }
 
 /* Countdown */
 .countdown {
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 12px;
+  margin-top: 20px;
 }
 
 .countdown div {
-  background: #111;
-  color: #fff;
-  padding: 8px 12px;
-  border-radius: 10px;
-  text-align: center;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(212,175,55,0.3);
+  padding: 10px 14px;
+  border-radius: 12px;
   font-size: 14px;
-  min-width: 50px;
 }
 
-/* Product Image */
+/* RIGHT SIDE IMAGE */
 .deal-right img {
-  width: 180px;
-  max-width: 100%;
-  border-radius: 15px;
-  object-fit: cover;
+  width: 380px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
-/* ================= Quantity Box ================= */
-
-.qty-box {
-  background: #fff;
-  padding: 5px 10px;
-  border-radius: 50px;
-  width: fit-content;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+/* CART ACTION */
+.cart-action {
+  margin-top: 25px;
 }
 
-.qty-minus,
-.qty-plus {
-  background: #111;
-  color: #fff;
-  border: none;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.qty-value {
+/* LUXURY BUTTON */
+.add-to-cart-btn {
+  padding: 12px 28px;
+  border-radius: 30px;
   font-weight: 600;
-  font-size: 16px;
-  min-width: 20px;
-  text-align: center;
+  transition: all 0.3s ease;
 }
-/* Tablet */
-@media (max-width: 992px) {
+
+.add-to-cart-btn:hover {
+  background: linear-gradient(45deg, #d4af37, #f5d77a);
+  color: #1a120d;
+  border: none;
+}
+
+/* QTY BOX */
+.qty-box {
+  background: rgba(255,255,255,0.05);
+  border-radius: 30px;
+  padding: 6px 15px;
+  color: #fff;
+}
+
+/* ===== MOBILE DESIGN ===== */
+
+@media (max-width: 768px) {
+
   .deal-card {
     flex-direction: column;
+    padding: 30px 20px 120px;
     text-align: center;
   }
 
-  .deal-right img {
-    width: 150px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 576px) {
-  .deal-card {
-    padding: 20px;
-  }
-
   .deal-title {
-    font-size: 20px;
+    font-size: 28px;
   }
 
-  .deal-offer span {
-    font-size: 22px;
+  .deal-right img {
+    width: 100%;
+    margin-top: 25px;
   }
 
-  .countdown div {
-    font-size: 12px;
-    padding: 6px 8px;
+  /* FIXED ADD TO CART AT BOTTOM */
+  .cart-action {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    background: #1a120d;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+  }
+
+  .add-to-cart-btn {
+    width: 100%;
+  }
+
+  .qty-box {
+    justify-content: center;
   }
 }
+
 
 
 .scroll-row {

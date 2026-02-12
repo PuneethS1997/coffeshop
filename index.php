@@ -45,6 +45,10 @@
       <span class="deal-tag">🔥 LIMITED TIME</span>
       <h2 class="deal-title">Espresso Coffee</h2>
       <p class="deal-offer">Flat <span>30% OFF</span></p>
+      <div class="deal-price">
+        ₹299 <del>₹399</del>
+      </div>
+
 
       <!-- Countdown -->
       <div id="countdown" class="countdown"></div>

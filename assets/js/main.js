@@ -36,6 +36,16 @@ const PRODUCTS = {
     price: 299,
     img: "https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=400&q=80"
   },
+  17: {
+    name: "Espresso",
+    price: 399,
+    img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80"
+  },
+  18: {
+    name: "Cold Brew",
+    price: 299,
+    img: "https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=400&q=80"
+  },
   21: { name: "Dark Roast", price: 499, img: "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=200&q=80" },
   22: { name: "Medium Roast", price: 459, img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=200&q=80" },
   23: { name: "Light Roast", price: 429, img: "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=200&q=80" },

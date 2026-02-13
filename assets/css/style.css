@@ -115,7 +115,7 @@ body {
 
 /* CONTAINER WIDTH CONTROL */
 .container {
-  max-width: 1140px !important;
+  max-width: 1370px !important;
 }
 
 /* DEAL CARD */
@@ -172,7 +172,9 @@ body {
 }
 
 .add-to-cart-btn {
-  padding: 12px 26px;
+  padding: 10px 20px;
+  margin-left: 1.8rem;
+  margin-top: -8px;
   border-radius: 30px;
   font-weight: 600;
   transition: 0.3s ease;
@@ -186,7 +188,7 @@ body {
 
 /* IMAGE */
 .deal-right img {
-  width: 350px;
+  width: 200px;
   max-width: 100%;
   border-radius: 22px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
@@ -219,14 +221,23 @@ body {
   }
 
   .deal-right img {
-    width: 100%;
+    width: 200px;
+    height: 250px;
     border-radius: 20px;
   }
 
   .add-to-cart-btn {
-    width: 100%;
-    padding: 14px;
+    width: 140px;
+    margin-left: 0;
+    padding: 8px;
     font-size: 16px;
+  }
+  .quick-action{
+    margin-left: 18px;
+    margin-bottom: 10px;
+  }
+  .qty-box{
+    margin-left: 70px;
   }
 }
 
@@ -376,7 +387,7 @@ body {
 
 /* IMAGE ITSELF */
 .product-img img {
-  width: 100%;
+  width: 168px;
   height: 100%;
   object-fit: cover; /* MAGIC LINE */
   display: block;
@@ -822,6 +833,10 @@ body {
   .ad-content h3 {
     font-size: 18px;
   }
+
+  .countdown {
+    margin-left: 95px;
+  }
 }
 
 .quick-scroll {
@@ -968,7 +983,7 @@ body {
 
 .success-section {
   min-height: 80vh;
-  background: linear-gradient(135deg, #F5EBDD, #EAD7C3);
+  background: linear-gradient(135deg, #f5ebdd, #ead7c3);
 }
 
 .success-card {
@@ -982,7 +997,7 @@ body {
 .success-icon {
   width: 90px;
   height: 90px;
-  background: #6F4E37;
+  background: #6f4e37;
   color: #fff;
   font-size: 40px;
   font-weight: bold;
@@ -996,7 +1011,7 @@ body {
 
 /* Coffee Button */
 .btn-coffee {
-  background-color: #6F4E37;
+  background-color: #6f4e37;
   color: #fff;
   border-radius: 50px;
   border: none;
@@ -1004,6 +1019,99 @@ body {
 }
 
 .btn-coffee:hover {
-  background-color: #4B2E2B;
+  background-color: #4b2e2b;
   color: #fff;
+}
+
+.festival-wrapper {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  padding-bottom: 40px;
+  margin-top: 40px;
+}
+
+/* Video */
+.festival-video {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.festival-video video {
+  width: 100%;
+  height: 224%;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+/* Content */
+.festival-content {
+  position: relative;
+  padding: 30px 20px;
+  margin-top: -40px;
+}
+
+/* Titles */
+.festival-title {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Cards */
+.festival-card {
+  padding: 15px;
+  border-radius: 20px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.festival-card img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+/* RAMADAN THEME */
+.ramadan-theme {
+  background: linear-gradient(135deg, #0f5132, #198754, #C8A951);
+}
+
+.ramadan-card {
+  background: #fff;
+  border: 2px solid #C8A951;
+}
+
+/* SHIVARATRI THEME */
+.shiva-theme {
+  /* background: linear-gradient(135deg, #2c003e, #4a148c, #1a237e); */
+  background: linear-gradient(135deg, #3e1d00, #8c5014, #7e441a);
+
+}
+
+.shiva-card {
+  background: #fff;
+  border: 2px solid #6a1b9a;
+}
+
+/* Hover */
+.festival-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .festival-video {
+    height: 180px;
+  }
+  .festival-video video {
+    height: 100%;
+  }
 }

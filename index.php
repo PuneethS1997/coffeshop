@@ -220,7 +220,7 @@
           <div class="quick-action" id="cart-action-<?= $p['id']; ?>">
 
             <!-- Add Button -->
-            <button class="btn btn-dark btn-sm add-to-cart-btn"
+            <button class="btn btn-dark btn-sm add-to-cart-btn align-items-center gap-2"
                     data-id="<?= $p['id']; ?>">
               Add to Cart
             </button>
@@ -328,6 +328,80 @@
         </div>
       </div>
 
+       <!-- ========= ESPRESSO ========= -->
+    <div class="flash-card">
+        <span class="discount-badge">30% OFF</span>
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80">
+        <h6>Espresso</h6>
+
+        <p class="price">
+          <span class="new">₹399</span>
+          <span class="old">₹549</span>
+        </p>
+
+        <!-- Cart Action -->
+        <div class="cart-action mt-2" id="cart-action-17">
+
+          <!-- Add Button -->
+          <button class="btn btn-dark btn-sm add-to-cart-btn"
+                  data-id="17">
+            Add to Cart
+          </button>
+
+          <!-- Quantity Box -->
+          <div class="qty-box d-none align-items-center justify-content-center gap-2">
+
+            <button class="btn btn-outline-dark btn-sm qty-minus"
+                    data-id="17">−</button>
+
+            <span class="qty-value" id="qty-17">0</span>
+
+            <button class="btn btn-dark btn-sm qty-plus"
+                    data-id="17">+</button>
+
+          </div>
+
+        </div>
+      </div>
+
+
+
+    <!-- ========= COLD BREW ========= -->
+    <div class="flash-card">
+        <span class="discount-badge">25% OFF</span>
+        <img src="https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=400&q=80">
+        <h6>Cold Brew</h6>
+
+        <p class="price">
+          <span class="new">₹299</span>
+          <span class="old">₹399</span>
+        </p>
+
+        <!-- Cart Action -->
+        <div class="cart-action mt-2" id="cart-action-18">
+
+          <!-- Add Button -->
+          <button class="btn btn-dark btn-sm add-to-cart-btn"
+                  data-id="18">
+            Add to Cart
+          </button>
+
+          <!-- Quantity Box -->
+          <div class="qty-box d-none align-items-center justify-content-center gap-2">
+
+            <button class="btn btn-outline-dark btn-sm qty-minus"
+                    data-id="18">−</button>
+
+            <span class="qty-value" id="qty-18">0</span>
+
+            <button class="btn btn-dark btn-sm qty-plus"
+                    data-id="18">+</button>
+
+          </div>
+
+        </div>
+      </div>
+
 
   </div>
 </section>
@@ -373,6 +447,123 @@
   </div>
 </section>
 
+<!-- ================= FESTIVAL SECTION ================= -->
+<section class="festival-area container my-5">
+<div class="d-flex justify-content-between align-items-center mb-3">
+<h5 class="fw-bold">🔥 Festival Sale</h5>
+    </div>
+
+
+  <div class="container">
+
+
+        <!-- ========= SHIVARATRI BLOCK ========= -->
+    <div class="festival-wrapper shiva-theme">
+
+<!-- Video -->
+<div class="festival-video">
+  <video autoplay muted loop playsinline>
+    <source src="assets/videos/shivratri.mp4" type="video/mp4">
+  </video>
+  <div class="video-overlay"></div>
+</div>
+
+<!-- Content -->
+<div class="festival-content">
+
+  <h2 class="festival-title">🕉 Shivaratri Energy Brews</h2>
+
+  <div class="row g-3 mt-3">
+
+    <div class="col-6 col-md-3">
+      <div class="festival-card shiva-card">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+        <h6>Midnight Espresso</h6>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="festival-card shiva-card">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+        <h6>Strong Filter Coffee</h6>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="festival-card shiva-card">
+        <img src="https://images.unsplash.com/photo-1507914372368-b2b085b925a1">
+        <h6>Energy Booster Packs</h6>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="festival-card shiva-card">
+        <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2">
+        <h6>Special Combo Offers</h6>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</div>
+
+    <!-- ========= RAMADAN BLOCK ========= -->
+    <div class="festival-wrapper ramadan-theme mb-5">
+
+      <!-- Video -->
+      <div class="festival-video">
+        <video autoplay muted loop playsinline>
+          <source src="assets/videos/ramadan.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="festival-content">
+
+        <h2 class="festival-title">🌙 Ramadan Coffee Specials</h2>
+
+        <div class="row g-3 mt-3">
+
+          <div class="col-6 col-md-3">
+            <div class="festival-card ramadan-card">
+              <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096">
+              <h6>Iftar Special Blends</h6>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <div class="festival-card ramadan-card">
+              <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348">
+              <h6>Premium Dates & Coffee</h6>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <div class="festival-card ramadan-card">
+              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+              <h6>Arabic Kahwa</h6>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-3">
+            <div class="festival-card ramadan-card">
+              <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735">
+              <h6>Gift Hampers</h6>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+  
+
+  </div>
+</section>
 
 
 

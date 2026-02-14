@@ -25,7 +25,20 @@
   </div>
 </section>
 
+
+
+
 <script>
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  localStorage.removeItem("cart_" + CART_VERSION);
+  localStorage.removeItem("checkout_total");
+});
+
+
   setTimeout(function(){
     window.location.href = "<?= $BASE_URL ?>index";
   }, 5000);

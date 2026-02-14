@@ -21,6 +21,20 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <script>
+
+function clearCartAfterPayment() {
+  localStorage.removeItem("cart_" + CART_VERSION);
+  localStorage.removeItem("checkout_total"); // optional (if still used)
+
+  // Reset in-memory cart
+  cart = {};
+
+  // Update UI everywhere
+  updateNavbarCartCount();
+  updateMobileCartBar();
+  renderCartDrawer();
+  renderCartPage();
+}
 document.addEventListener("DOMContentLoaded", function () {
 
   const total = getTotalPrice();
@@ -52,8 +66,11 @@ document.getElementById("checkout-total").innerText = total;
         alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
 
         // Clear cart after successful payment
-        localStorage.removeItem("cart");
-        localStorage.removeItem("checkout_total");
+       
+    // ✅ Payment successful
+    if (response.razorpay_payment_id) {
+   clearCartAfterPayment();
+}
 
         window.location.href = "success"; // create success page
       },

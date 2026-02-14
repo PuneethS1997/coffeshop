@@ -24,7 +24,7 @@
   <!-- EMPTY CART -->
   <div id="empty-cart" class="text-center d-none">
     <p class="fs-5 mb-3">Your cart is empty ☕</p>
-    <a href="<?= $BASE_URL ?>/index" class="btn btn-outline-dark">Shop Coffee</a>
+    <a href="<?= $BASE_URL ?>index" class="btn btn-outline-dark">Shop Coffee</a>
   </div>
 </section>
 

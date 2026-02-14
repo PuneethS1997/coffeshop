@@ -51,6 +51,67 @@ $products = [
       <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13">
       <span>Filter</span>
     </a>
+
+    <a href="category?type=beans" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348">
+      <span>Beans</span>
+    </a>
+
+    <a href="category?type=espresso" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+      <span>Espresso</span>
+    </a>
+
+    <a href="category?type=coldbrew" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1521302080334-4bebac2763a6">
+      <span>Cold Brew</span>
+    </a>
+
+    <a href="category?type=filter" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13">
+      <span>Filter</span>
+    </a>
+
+    <a href="category?type=beans" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348">
+      <span>Beans</span>
+    </a>
+
+    <a href="category?type=espresso" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+      <span>Espresso</span>
+    </a>
+
+    <a href="category?type=coldbrew" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1521302080334-4bebac2763a6">
+      <span>Cold Brew</span>
+    </a>
+
+    <a href="category?type=filter" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13">
+      <span>Filter</span>
+    </a>
+
+    <a href="category?type=beans" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348">
+      <span>Beans</span>
+    </a>
+
+    <a href="category?type=espresso" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+      <span>Espresso</span>
+    </a>
+
+    <a href="category?type=coldbrew" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1521302080334-4bebac2763a6">
+      <span>Cold Brew</span>
+    </a>
+
+    <a href="category?type=filter" class="cat-card">
+      <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13">
+      <span>Filter</span>
+    </a>
+
   </div>
 </section>
 
@@ -58,6 +119,12 @@ $products = [
   <h5 class="fw-bold mb-3">🔥 Top Deals</h5>
 
   <div class="deal-scroll">
+    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=500&q=80">
+    <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=500&q=80">
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=500&q=80">
+    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=500&q=80">
+    <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=500&q=80">
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=500&q=80">
     <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=500&q=80">
     <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=500&q=80">
     <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=500&q=80">

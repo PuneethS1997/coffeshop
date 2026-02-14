@@ -64,7 +64,7 @@ const PRODUCTS = {
 
 
 // ================= CART =================
-const CART_VERSION = "v3"; // change when cart logic structure changes
+const CART_VERSION = "v4"; // change when cart logic structure changes
 
 let cart = JSON.parse(localStorage.getItem("cart_" + CART_VERSION)) || {};
 
@@ -99,12 +99,7 @@ function updateNavbarCartCount() {
   if (el) el.innerText = getTotalCount();
 }
 
-// function updateQtyUI() {
-//   for (let id in PRODUCTS) {
-//     const el = document.getElementById("qty-" + id);
-//     if (el) el.innerText = cart[id] || 0;
-//   }
-// }
+
 
 function updateQtyUI() {
   for (let id in PRODUCTS) {
@@ -204,6 +199,10 @@ document.addEventListener("click", function (e) {
 
 // ================= INIT =================
 document.addEventListener("DOMContentLoaded", function () {
+
+    // 🔥 remove old cart structure
+    localStorage.removeItem("cart");
+
   updateQtyUI();
   updateNavbarCartCount();
   updateMobileCartBar();
@@ -274,10 +273,7 @@ function renderCartPage() {
   }
 
 }
-function getCart() {
-  const cart = JSON.parse(localStorage.getItem("cart"));
-  return Array.isArray(cart) ? cart : [];
-}
+
 
 function renderCartDrawer() {
   const container = document.getElementById("cart-drawer-items");
@@ -333,25 +329,7 @@ function renderCartDrawer() {
 
 
 
-function updateCart(product, change) {
-  let cart = getCart();
 
-  const index = cart.findIndex(item => item.id === product.id);
-
-  if (index > -1) {
-    cart[index].qty += change;
-    if (cart[index].qty <= 0) cart.splice(index, 1);
-  } else if (change > 0) {
-    cart.push({ ...product, qty: 1 });
-  }
-
-  // localStorage.setItem("cart", JSON.stringify(cart));
-  localStorage.setItem("cart_" + CART_VERSION, JSON.stringify(cart));
-
-
-  renderCartDrawer();
-  updateCartCount();
-}
 
 function openCartDrawer() {
   const drawer = document.getElementById("cart-drawer");
@@ -375,16 +353,10 @@ function closeCartDrawer() {
   drawer.classList.remove("show");
   backdrop.classList.add("d-none");
 }
-function removeFromCart(id) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart = cart.filter(item => item.id !== id);
 
-  // localStorage.setItem("cart", JSON.stringify(cart));
-  localStorage.setItem("cart_" + CART_VERSION, JSON.stringify(cart));
 
-  renderCartDrawer();
-  updateCartCount?.();
-}
+// cart logic ends here
+
 const catTabs = document.querySelectorAll(".cat-tab");
 
 if (catTabs.length) {

@@ -1541,3 +1541,12 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+.plp-search{
+  text-align: end;
+  margin-right: 9rem;
+}
+@media (max-width: 480px) {
+  .plp-search{
+    margin-right: 1rem;
+  }
+}

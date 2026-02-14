@@ -23,7 +23,8 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  const total = localStorage.getItem("checkout_total");
+  const total = getTotalPrice();
+document.getElementById("checkout-total").innerText = total;
 
   if (!total || total <= 0) {
     alert("Cart is empty!");

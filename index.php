@@ -369,7 +369,7 @@
     <!-- ========= COLD BREW ========= -->
     <div class="flash-card">
         <span class="discount-badge">25% OFF</span>
-        <img src="https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=400&q=80">
+        <img src="https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=400&q=80" loading="lazy">
         <h6>Cold Brew</h6>
 
         <p class="price">
@@ -409,6 +409,9 @@
 <!-- PROMO BANNERS SECTION -->
 <!-- PROMO BANNERS --><!-- COFFEE PROMO SECTION -->
 <section class="container my-4">
+<div class="d-flex justify-content-between align-items-center mb-3">
+<h5 class="fw-bold">🔥 Todays Deals</h5>
+    </div>
   <div class="promo-container p-3">
 
     <div class="promo-scroll">
@@ -682,5 +685,132 @@
     <?php endforeach; ?>
   </div>
 </section>
+
+<section class="why-section position-relative py-5 overflow-hidden">
+  <!-- Floating Beans -->
+<div class="bean-particles"></div>
+
+<!-- Smoke Effect -->
+<div class="smoke"></div>
+
+  <div class="beans-bg"></div>
+
+  <div class="container text-center position-relative">
+    <h2 class="fw-bold mb-5 luxury-title">Why FifthGen?</h2>
+
+    <div class="row g-4">
+      <div class="col-md-3 col-6">
+        <div class="why-card p-4">
+          <div class="icon">☕</div>
+          <h6 class="mt-3">Freshly Roasted</h6>
+          <p>Roasted in small batches for peak freshness.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <div class="why-card p-4">
+          <div class="icon">🌍</div>
+          <h6 class="mt-3">Single Origin</h6>
+          <p>Sourced from premium coffee regions.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <div class="why-card p-4">
+          <div class="icon">🌱</div>
+          <h6 class="mt-3">Ethically Sourced</h6>
+          <p>Supporting farmers & sustainability.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <div class="why-card p-4">
+          <div class="icon">🔥</div>
+          <h6 class="mt-3">Small Batch Craft</h6>
+          <p>Precision roasting for perfect flavor.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="reviews-section py-5">
+  <div class="container text-center">
+
+    <h2 class="section-title mb-5">What Our Customers Say</h2>
+
+    <div class="testimonial-slider">
+
+      <div class="testimonial-track">
+
+        <div class="testimonial-item">
+          <div class="stars">★★★★★</div>
+          <p>"The freshest beans I've ever tasted. FifthGen changed my mornings."</p>
+          <h6>— Aarav M.</h6>
+        </div>
+
+        <div class="testimonial-item">
+          <div class="stars">★★★★★</div>
+          <p>"Roast date transparency is next level. True specialty coffee."</p>
+          <h6>— Priya S.</h6>
+        </div>
+
+        <div class="testimonial-item">
+          <div class="stars">★★★★★</div>
+          <p>"Sustainable and delicious. My go-to brand now."</p>
+          <h6>— Rohan K.</h6>
+        </div>
+
+      </div>
+
+      <!-- Dots -->
+      <div class="testimonial-dots"></div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="our-story-section">
+
+  <div class="cinematic-bg"></div>
+  <div class="story-overlay"></div>
+  <div class="cinematic-smoke"></div>
+
+  <div class="container text-center story-content">
+    <h2 class="story-title">Crafted With Purpose</h2>
+
+    <div class="gold-line"></div>
+
+    <p class="story-text">
+      From ethically sourced farms to precision roasting,
+      every FifthGen batch tells a story of passion,
+      transparency, and uncompromising quality.
+    </p>
+
+    <a href="<?= $BASE_URL ?>about-us.php" class="story-btn">
+      View Our Story
+    </a>
+  </div>
+
+</section>
+
+
+
+<section class="subscription-section text-center py-5">
+  <div class="container">
+
+    <h2 class="mb-3">Never Run Out of Coffee</h2>
+    <p class="mb-4">Freshly roasted beans delivered to your door. Cancel anytime.</p>
+
+    <a href="#" class="btn-subscribe">Start Subscription</a>
+
+  </div>
+</section>
+
+
+
 
 <?php include 'includes/footer.php'; ?>

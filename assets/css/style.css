@@ -1115,3 +1115,297 @@ body {
     height: 100%;
   }
 }
+
+/* Section Background */
+/* SECTION BASE */
+.why-section {
+  background: radial-gradient(circle at center, #2a1c14, #120c08);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---------------------- */
+/* 🫘 FLOATING BEANS */
+/* ---------------------- */
+
+.bean-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bean {
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  background: radial-gradient(ellipse at center, #5c3a21, #2b1a0f);
+  border-radius: 50% 50% 45% 45%;
+  opacity: 1.15;
+  animation: floatBeans linear infinite;
+}
+
+.bean::after {
+  content: "";
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  width: 2px;
+  height: 90%;
+  background: #1a0f08;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+@keyframes floatBeans {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+  }
+}
+
+/* ---------------------- */
+/* 🌫 SOFT SMOKE */
+/* ---------------------- */
+
+.smoke {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+  animation: smokeMove 40s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes smokeMove {
+  0% { transform: translate(-25%, -25%) rotate(0deg); }
+  100% { transform: translate(-25%, -25%) rotate(360deg); }
+}
+
+/* Luxury Title */
+.luxury-title {
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #d4af37, #f5e6c4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Cards */
+.why-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  transition: 0.4s ease;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.why-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+  border-color: #d4af37;
+}
+
+/* Icon Styling */
+.icon {
+  font-size: 30px;
+  background: linear-gradient(90deg, #d4af37, #f5e6c4);
+  -webkit-background-clip: text;
+  /* -webkit-text-fill-color: transparent; */
+}
+
+/* Coffee Beans Animation Background */
+.beans-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  animation: moveBeans 80s linear infinite;
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='50' cy='50' rx='12' ry='18' fill='%235c3a21'/%3E%3Crect x='49' y='32' width='2' height='36' fill='%231a0f08'/%3E%3Cellipse cx='150' cy='120' rx='12' ry='18' fill='%235c3a21'/%3E%3Crect x='149' y='102' width='2' height='36' fill='%231a0f08'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+@keyframes moveBeans {
+  from { background-position: 0 0; }
+  to { background-position: 0 1000px; }
+}
+
+
+.subscription-section {
+  background: linear-gradient(135deg, #2a1c14, #120c08);
+  color: #fff;
+}
+
+.btn-subscribe {
+  display: inline-block;
+  padding: 14px 35px;
+  background: #c6a15b;
+  color: #000;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-subscribe:hover {
+  background: #e2be78;
+  transform: scale(1.05);
+}
+
+.reviews-section {
+  background: #f9f7f4;
+}
+
+.testimonial-slider {
+  position: relative;
+  overflow: hidden;
+  max-width: 700px;
+  margin: auto;
+}
+
+.testimonial-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.testimonial-item {
+  min-width: 100%;
+  padding: 40px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+}
+
+.stars {
+  color: #c6a15b;
+  margin-bottom: 15px;
+}
+
+.testimonial-dots {
+  margin-top: 20px;
+}
+
+.testimonial-dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.testimonial-dots span.active {
+  background: #c6a15b;
+}
+
+
+.our-story-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Slow cinematic zoom background */
+.cinematic-bg {
+  position: absolute;
+  inset: 0;
+  background: url('../images/coffee-story.png') center/cover no-repeat;
+  animation: slowZoom 20s ease-in-out infinite alternate;
+  transform: scale(1.1);
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1.1); }
+  to { transform: scale(1.25); }
+}
+
+/* Dark overlay */
+.story-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 8, 5, 0.75);
+}
+
+/* Soft smoke layer */
+.cinematic-smoke {
+  position: absolute;
+  inset: 0;
+  background: url('../images/smoke.png') center/cover repeat;
+  opacity: 0.05;
+  animation: smokeMove 60s linear infinite;
+}
+
+@keyframes smokeMove {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 0; }
+}
+
+/* Content styling */
+.story-content {
+  position: relative;
+  color: #fff;
+  max-width: 800px;
+  z-index: 3;
+  animation: fadeUp 1.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.story-title {
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.gold-line {
+  width: 80px;
+  height: 2px;
+  background: #c6a15b;
+  margin: 20px auto 30px;
+  animation: expandLine 2s ease forwards;
+  transform: scaleX(0);
+  transform-origin: center;
+}
+
+@keyframes expandLine {
+  to { transform: scaleX(1); }
+}
+
+.story-text {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.story-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  border: 2px solid #c6a15b;
+  color: #c6a15b;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: 0.4s ease;
+}
+
+.story-btn:hover {
+  background: #c6a15b;
+  color: #000;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(198,161,91,0.5);
+}

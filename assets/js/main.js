@@ -817,4 +817,51 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+const container = document.querySelector('.bean-particles');
 
+for (let i = 0; i < 20; i++) {
+  const bean = document.createElement('div');
+  bean.classList.add('bean');
+
+  bean.style.left = Math.random() * 100 + 'vw';
+  bean.style.animationDuration = (15 + Math.random() * 20) + 's';
+  bean.style.animationDelay = Math.random() * 10 + 's';
+  bean.style.opacity = 0.05 + Math.random() * 0.15;
+
+  container.appendChild(bean);
+}
+
+
+const track = document.querySelector('.testimonial-track');
+const items = document.querySelectorAll('.testimonial-item');
+const dotsContainer = document.querySelector('.testimonial-dots');
+
+let currentIndex = 0;
+const total = items.length;
+
+// Create dots
+for (let i = 0; i < total; i++) {
+  const dot = document.createElement('span');
+  dot.addEventListener('click', () => {
+    currentIndex = i;
+    updateSlider();
+  });
+  dotsContainer.appendChild(dot);
+}
+
+const dotss = dotsContainer.querySelectorAll('span');
+
+function updateSlider() {
+  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+  dotss.forEach(dot => dot.classList.remove('active'));
+  dotss[currentIndex].classList.add('active');
+}
+
+// Auto slide
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % total;
+  updateSlider();
+}, 5000);
+
+updateSlider();

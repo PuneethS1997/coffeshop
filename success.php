@@ -16,7 +16,7 @@
         Your brew is being prepared with love.
       </p>
 
-      <a href="<?= $BASE_URL ?>/index" class="btn btn-coffee px-4 py-2">
+      <a href="<?= $BASE_URL ?>index" class="btn btn-coffee px-4 py-2">
         Back to Home
       </a>
 
@@ -27,7 +27,7 @@
 
 <script>
   setTimeout(function(){
-    window.location.href = "<?= $BASE_URL ?>/index";
+    window.location.href = "<?= $BASE_URL ?>index";
   }, 5000);
 </script>
 

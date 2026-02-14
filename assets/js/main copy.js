@@ -56,7 +56,7 @@ const PRODUCTS = {
   28: { name: "Light Roast", price: 429, img: "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=200&q=80" },
   29: { name: "Espresso Blend", price: 549, img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=200&q=80" },
   20: { name: "Arabica Beans", price: 599, img: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=200&q=80" },
-
+  
 };
 
 
@@ -198,7 +198,6 @@ document.addEventListener("click", function (e) {
   renderCartDrawer();
   renderCartPage();
   renderRecommendations();
-
 });
 
 
@@ -210,8 +209,8 @@ document.addEventListener("DOMContentLoaded", function () {
   renderCartDrawer();
   renderCartPage();
   renderRecommendations();
-  renderProducts();  
-  
+  renderPLP();
+
 });
 
 
@@ -262,17 +261,17 @@ function renderCartPage() {
     summary.classList.remove("d-none");
     empty.classList.add("d-none");
     totalEl.innerText = total;
-
+  
     // ✅ Save total for checkout
     localStorage.setItem("checkout_total", total);
-
+  
   } else {
     summary.classList.add("d-none");
     empty.classList.remove("d-none");
-
+  
     localStorage.removeItem("checkout_total");
   }
-
+  
 }
 function getCart() {
   const cart = JSON.parse(localStorage.getItem("cart"));
@@ -495,14 +494,14 @@ function openFilterDrawer() {
 function closeFilterDrawer() {
   document.getElementById("filterDrawer").classList.remove("open");
 }
-// const priceRange = document.getElementById("priceRange");
-// const priceVal = document.getElementById("priceVal");
+const priceRange = document.getElementById("priceRange");
+const priceVal = document.getElementById("priceVal");
 
-// if (priceRange) {
-//   priceRange.addEventListener("input", () => {
-//     priceVal.textContent = priceRange.value;
-//   });
-// }
+if (priceRange) {
+  priceRange.addEventListener("input", () => {
+    priceVal.textContent = priceRange.value;
+  });
+}
 
 const FILTER_KEY = "categoryFilters";
 
@@ -560,9 +559,29 @@ function restoreFilters() {
   });
 
   // Auto-apply after restore
-  applyFilters(saved);
+  applyFiltersSilently(saved);
 }
+function restoreFilters() {
+  const saved = JSON.parse(localStorage.getItem(FILTER_KEY));
+  if (!saved) return;
 
+  // Restore price
+  const priceRange = document.getElementById("priceRange");
+  const priceVal = document.getElementById("priceVal");
+
+  if (priceRange && saved.price) {
+    priceRange.value = saved.price;
+    priceVal.textContent = saved.price;
+  }
+
+  // Restore roast checkboxes
+  document.querySelectorAll(".roast-filter").forEach(cb => {
+    cb.checked = saved.roasts?.includes(cb.value);
+  });
+
+  // Auto-apply after restore
+  applyFiltersSilently(saved);
+}
 function clearFilters() {
   localStorage.removeItem(FILTER_KEY);
 
@@ -626,6 +645,8 @@ function updateFilterBadge(filters) {
 }
 function renderFilterChips(filters) {
   const box = document.getElementById("active-filters");
+  if (!box) return;  // 🔥 prevent crash
+
   box.innerHTML = "";
 
   if (filters.price !== "all") {
@@ -640,37 +661,7 @@ function renderFilterChips(filters) {
     }));
   });
 }
-// function renderFilterChips(filters) {
-//   const box = document.getElementById("active-filters");
-//   box.innerHTML = "";
 
-//   if (filters.price !== "all") {
-//     box.appendChild(createChip(`Price: ${filters.price}`, () => {
-//       clearPriceFilter();
-//     }));
-//   }
-
-//   filters.roasts.forEach(r => {
-//     box.appendChild(createChip(r, () => {
-//       removeRoast(r);
-//     }));
-//   });
-// }
-
-function renderFilterChips(filters) {
-  const box = document.getElementById("active-filters");
-  if (!box) return;  // 🔥 stop if not present
-
-  box.innerHTML = "";
-
-  if (filters.price !== "all") {
-    box.innerHTML += `<span class="chip">Price: ${filters.price}</span>`;
-  }
-
-  filters.roasts.forEach(r => {
-    box.innerHTML += `<span class="chip">${r}</span>`;
-  });
-}
 
 function clearPriceFilter() {
   document.querySelector('.price-filter[value="all"]').checked = true;
@@ -832,220 +823,105 @@ for (let i = 0; i < 20; i++) {
       const bean = document.createElement('div');
       container.appendChild(bean);
     }
-  }
-}
+  }}
 
 
-document.addEventListener("DOMContentLoaded", function () {
+const track = document.querySelector('.testimonial-track');
+const items = document.querySelectorAll('.testimonial-item');
+const dotsContainer = document.querySelector('.testimonial-dots');
 
-  const track = document.querySelector('.testimonial-track');
-  const items = document.querySelectorAll('.testimonial-item');
-  const dotsContainer = document.querySelector('.testimonial-dots');
+let currentIndex = 0;
+const total = items.length;
 
-  // Stop if elements don't exist
-  if (!track || !items.length || !dotsContainer) return;
-
-  let currentIndex = 0;
-  const total = items.length;
-
-  // Create dots
-  for (let i = 0; i < total; i++) {
-    const dot = document.createElement('span');
-    
-    dot.addEventListener('click', () => {
-      currentIndex = i;
-      updateSlider();
-    });
-
-    dotsContainer.appendChild(dot);
-  }
-
-  const dots = dotsContainer.querySelectorAll('span');
-
-  function updateSlider() {
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[currentIndex].classList.add('active');
-  }
-
-  // Auto slide
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % total;
+// Create dots
+for (let i = 0; i < total; i++) {
+  const dot = document.createElement('span');
+  dot.addEventListener('click', () => {
+    currentIndex = i;
     updateSlider();
-  }, 5000);
-
-  updateSlider();
-});
-
-// =============================
-// PRODUCT LISTING PAGE LOGIC
-// =============================
-
-let filteredProducts = [];
-
-// Convert PRODUCTS object → array safely
-function getProductArray() {
-  if (Array.isArray(PRODUCTS)) return PRODUCTS;
-  return Object.keys(PRODUCTS).map(id => ({
-    id: id,
-    ...PRODUCTS[id]
-  }));
+  });
+  dotsContainer.appendChild(dot);
 }
 
-// =============================
-// RENDER PRODUCTS
-// =============================
+const dotss = dotsContainer.querySelectorAll('span');
 
-function renderProducts(productList) {
+function updateSlider() {
+  track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-  const grid = document.getElementById("productGrids");
+  dotss.forEach(dot => dot.classList.remove('active'));
+  dotss[currentIndex].classList.add('active');
+}
+
+// Auto slide
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % total;
+  updateSlider();
+}, 5000);
+
+updateSlider();
+
+// plp page
+function renderPLP() {
+  const grid = document.getElementById("productGrid");
   if (!grid) return;
 
   grid.innerHTML = "";
 
-  if (!Array.isArray(productList) || productList.length === 0) {
-    grid.innerHTML = "<p class='no-products'>No products found</p>";
-    return;
-  }
+  Object.keys(PRODUCTS).forEach(id => {
+    const p = PRODUCTS[id];
 
-  productList.forEach(product => {
+    const roast = ["Light","Medium","Dark"][Math.floor(Math.random()*3)];
+    const strength = Math.floor(Math.random()*100);
+    const discount = Math.floor(Math.random()*30);
 
-    const card = document.createElement("div");
-    // card.className = "product-card product-item";
+    grid.innerHTML += `
+      <div class="product-card product-item"
+           data-price="${p.price}"
+           data-roast="${roast}"
+           data-name="${p.name.toLowerCase()}">
 
-    // card.innerHTML = `
-    //   <div class="product-image">
-    //     <img src="${product.img}" alt="${product.name}">
-    //   </div>
+        <span class="discount-badge">${discount}% OFF</span>
 
-    //   <div class="product-info">
-    //     <h4 class="product-title">${product.name}</h4>
+        <img src="${p.img}" alt="${p.name}">
 
-        
+        <div class="roast-badge">${roast} Roast</div>
 
-    //     <div class="price-row">
-    //       <strong class="fw-semibold mb-2">₹${product.price}</strong>
+        <h4>${p.name}</h4>
 
-    //       <div id="cart-action-${product.id}">
-    //         <button class="btn btn-dark btn-sm add-to-cart-btn" data-id="${product.id}">
-    //           Add to Cart
-    //         </button>
-
-    //         <div class="quick-qty d-none">
-    //           <button class="btn btn-outline-dark btn-sm qty-minus" data-id="${product.id}">−</button>
-    //           <span id="qty-${product.id}">0</span>
-    //           <button class="btn btn-outline-dark btn-sm qty-plus" data-id="${product.id}">+</button>
-    //         </div>
-    //       </div>
-
-    //     </div>
-    //   </div>
-    // `;
-
-    card.innerHTML = `
-    <div class="product-card text-center">
-
-        <div class="product-img">
-          <img src="${product.img}" alt="${product.name}">
+        <div class="strength-meter">
+          <div class="strength-fill" style="width:${strength}%"></div>
         </div>
 
-        <h6 class="mt-2 mb-1">${product.name}</h6>
-        <p class="fw-semibold mb-2">₹${product.price}</p>
+        <div class="price-row">
+          <strong>₹${p.price}</strong>
 
-   
+          <div id="cart-action-${id}">
+            <button class="add-to-cart-btn" data-id="${id}">Add</button>
 
-        <div class="quick-action" id="cart-action-${product.id}">
-
-          <!-- Add Button -->
-          <button class="btn btn-dark btn-sm add-to-cart-btn"
-                  data-id="${product.id}">
-            Add to Cart
-          </button>
-
-          <!-- Quantity Box -->
-          <div class="quick-qty d-none align-items-center gap-2">
-            <button class="btn btn-outline-dark btn-sm qty-minus"
-                    data-id="${product.id}">−</button>
-
-            <span id="qty-${product.id}">0</span>
-
-            <button class="btn btn-dark btn-sm qty-plus"
-                    data-id="${product.id}">+</button>
+            <div class="quick-qty d-none">
+              <button class="qty-minus" data-id="${id}">−</button>
+              <span id="qty-${id}">0</span>
+              <button class="qty-plus" data-id="${id}">+</button>
+            </div>
           </div>
 
-          </div>
-
+        </div>
       </div>
-      `;
-
-    grid.appendChild(card);
+    `;
   });
 
-  updateQtyUI(); // keep your cart UI working
+  updateQtyUI();
 }
+document.getElementById("sortSelect")?.addEventListener("change", function() {
+  const type = this.value;
+  const grid = document.getElementById("productGrid");
+  const cards = Array.from(grid.children);
 
-// =============================
-// APPLY FILTERS (SEARCH + PRICE + SORT)
-// =============================
-
-function applyFilters() {
-
-  const searchValue =
-    document.getElementById("productSearch")?.value.toLowerCase() || "";
-
-  const maxPrice =
-    Number(document.getElementById("priceRange")?.value) || Infinity;
-
-  const sortValue =
-    document.getElementById("sortSelect")?.value || "";
-
-  let products = getProductArray();
-
-  // SEARCH
-  products = products.filter(p =>
-    p.name.toLowerCase().includes(searchValue)
-  );
-
-  // PRICE FILTER
-  products = products.filter(p =>
-    Number(p.price) <= maxPrice
-  );
-
-  // SORTING
-  if (sortValue === "lowhigh") {
-    products.sort((a, b) => a.price - b.price);
+  if(type === "lowhigh"){
+    cards.sort((a,b)=>a.dataset.price - b.dataset.price);
   }
 
-  if (sortValue === "highlow") {
-    products.sort((a, b) => b.price - a.price);
-  }
-
-  filteredProducts = products;
-
-  renderProducts(filteredProducts);
-}
-
-// =============================
-// EVENT LISTENERS
-// =============================
-
-document.addEventListener("DOMContentLoaded", function () {
-
-  filteredProducts = getProductArray();
-  renderProducts(filteredProducts);
-
-  document.getElementById("productSearch")
-    ?.addEventListener("input", applyFilters);
-
-  document.getElementById("priceRange")
-    ?.addEventListener("input", function () {
-      const priceValue = document.getElementById("priceValue");
-      if (priceValue) priceValue.textContent = "₹" + this.value;
-      applyFilters();
-    });
-
-  document.getElementById("sortSelect")
-    ?.addEventListener("change", applyFilters);
-
+  grid.innerHTML = "";
+  cards.forEach(card => grid.appendChild(card));
 });
+

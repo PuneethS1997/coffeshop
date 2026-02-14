@@ -37,7 +37,7 @@ $css_version = file_exists($css_file) ? filemtime($css_file) : time();
         <li class="nav-item"><a class="nav-link" href="<?= $BASE_URL ?>product">Shop</a></li>
         <li class="nav-item"><a class="nav-link" href="<?= $BASE_URL ?>login">Login</a></li>
         <li class="nav-item">
-        <a href="<?= $BASE_URL ?>/cart" class="position-relative text-dark text-decoration-none">
+        <a href="<?= $BASE_URL ?>cart" class="position-relative text-dark text-decoration-none">
             🛒
             <span id="cart-count"
                     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">

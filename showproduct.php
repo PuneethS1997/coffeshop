@@ -12,6 +12,71 @@
     gap: 8px;
     padding-bottom: 12px;
 }
+
+/* PDP BUTTON WRAPPER */
+.pdp-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* Left area keeps fixed width */
+.cart-action {
+  flex: 1;
+  min-width: 150px;
+}
+
+/* Buttons same height */
+.cart-action button,
+.buy-now-btn {
+  height: 45px;
+  border-radius: 8px;
+}
+
+/* Quantity Box */
+.qty-box {
+  display: flex;
+  height: 45px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.qty-box button {
+  width: 45px;
+  border-radius: 0;
+}
+
+.qty-box span {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+/* Buy Now fixed width */
+.buy-now-btn {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 576px) {
+
+  .pdp-actions {
+    flex-direction: column;
+  }
+
+  .cart-action,
+  .buy-now-btn {
+    width: 40%;
+  }
+
+}
+
 </style>
 
 <div class="pdp-container">
@@ -64,33 +129,66 @@
     </div> -->
 
 
-<div class="quick-action" id="cart-action-<?= $id; ?>">
+    <!-- <div class="quick-action" id="cart-action-<?= $id; ?>">
 
-  <button class="btn btn-dark btn-sm add-to-cart-btn"
-          data-id="<?= $id; ?>">
-    Add to Cart
-  </button>
+      <button class="btn btn-dark btn-sm add-to-cart-btn"
+              data-id="<?= $id; ?>">
+        Add to Cart
+      </button>
 
-  <button class="btn btn-warning btn-sm mt-2"
+      <button class="btn btn-warning btn-sm mt-2"
+            id="buy-now-btn"
+            data-id="<?= $id; ?>">
+      Buy Now
+    </button>
+
+
+      <div class="quick-qty d-none align-items-center gap-2">
+
+        <button class="btn btn-outline-dark btn-sm qty-minus"
+                data-id="<?= $id; ?>">−</button>
+
+        <span id="qty-<?= $id; ?>">0</span>
+
+        <button class="btn btn-dark btn-sm qty-plus"
+                data-id="<?= $id; ?>">+</button>
+
+      </div> -->
+      
+
+
+      <div class="pdp-actions">
+
+        <!-- LEFT SIDE (Cart / Quantity) -->
+        <div class="cart-area" id="cart-action-<?= $id; ?>">
+
+          <button class="btn btn-dark add-to-cart-btn"
+                  data-id="<?= $id; ?>">
+            Add to Cart
+          </button>
+
+          <div class="quick-qty d-none align-items-center justify-content-between">
+            <button class="qty-minus btn btn-outline-dark"
+                    data-id="<?= $id; ?>">−</button>
+
+            <span id="qty-<?= $id; ?>">1</span>
+
+            <button class="qty-plus btn btn-dark"
+                    data-id="<?= $id; ?>">+</button>
+          </div>
+
+        </div>
+
+<!-- RIGHT SIDE (Buy Now Always Fixed) -->
+<button class="btn btn-warning buy-now-btn"
         id="buy-now-btn"
         data-id="<?= $id; ?>">
   Buy Now
 </button>
 
-
-  <div class="quick-qty d-none align-items-center gap-2">
-
-    <button class="btn btn-outline-dark btn-sm qty-minus"
-            data-id="<?= $id; ?>">−</button>
-
-    <span id="qty-<?= $id; ?>">0</span>
-
-    <button class="btn btn-dark btn-sm qty-plus"
-            data-id="<?= $id; ?>">+</button>
+</div>
 
   </div>
-
-</div>
 
 
   </div>

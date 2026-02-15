@@ -185,20 +185,20 @@
       "img" => "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=400&q=80"
     ],
     [
-      "id" => 2,
+      "id" => 16,
       "name" => "Cold Brew",
       "price" => 399,
       "img" => "https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=400&q=80"
     ],
     [
-      "id" => 3,
+      "id" => 15,
       "name" => "Espresso",
-      "price" => 549,
+      "price" => 399,
       "img" => "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80"
     ],
     [
-      "id" => 4,
-      "name" => "Arabica",
+      "id" => 5,
+      "name" => "Arabica Beans",
       "price" => 599,
       "img" => "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=400&q=80"
     ]
@@ -209,7 +209,10 @@
 
     <?php foreach ($quickProducts as $p): ?>
       <div class="quick-card">
+      <a href="showproduct?id=<?= $p['id']; ?>">
+
           <img src="<?= $p['img']; ?>" alt="<?= $p['name']; ?>">
+    </a>
 
           <div class="quick-info">
             <small class="fw-bold"><?= $p['name']; ?></small>
@@ -257,8 +260,12 @@
     <!-- ========= ESPRESSO ========= -->
     <div class="flash-card">
         <span class="discount-badge">30% OFF</span>
+        <a href="showproduct?id=150">
+
         <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80">
-        <h6>Espresso</h6>
+       </a>
+
+        <h6>Flash Espresso</h6>
 
         <p class="price">
           <span class="new">₹399</span>
@@ -266,11 +273,11 @@
         </p>
 
         <!-- Cart Action -->
-        <div class="cart-action mt-2" id="cart-action-15">
+        <div class="cart-action mt-2" id="cart-action-150">
 
           <!-- Add Button -->
           <button class="btn btn-dark btn-sm add-to-cart-btn"
-                  data-id="15">
+                  data-id="150">
             Add to Cart
           </button>
 
@@ -278,12 +285,12 @@
           <div class="quick-qty align-items-center gap-2">
 
             <button class="btn btn-outline-dark btn-sm qty-minus"
-                    data-id="15">−</button>
+                    data-id="150">−</button>
 
-            <span class="qty-value" id="qty-15">0</span>
+            <span class="qty-value" id="qty-150">0</span>
 
             <button class="btn btn-dark btn-sm qty-plus"
-                    data-id="15">+</button>
+                    data-id="150">+</button>
 
           </div>
 
@@ -295,8 +302,11 @@
     <!-- ========= COLD BREW ========= -->
     <div class="flash-card">
         <span class="discount-badge">25% OFF</span>
+        <a href="showproduct?id=160">
+
         <img src="https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=400&q=80">
-        <h6>Cold Brew</h6>
+      </a>
+        <h6>Flash Cold Brew</h6>
 
         <p class="price">
           <span class="new">₹299</span>
@@ -304,11 +314,11 @@
         </p>
 
         <!-- Cart Action -->
-        <div class="cart-action mt-2" id="cart-action-16">
+        <div class="cart-action mt-2" id="cart-action-160">
 
           <!-- Add Button -->
           <button class="btn btn-dark btn-sm add-to-cart-btn"
-                  data-id="16">
+                  data-id="160">
             Add to Cart
           </button>
 
@@ -316,12 +326,12 @@
           <div class="quick-qty align-items-center gap-2">
 
             <button class="btn btn-outline-dark btn-sm qty-minus"
-                    data-id="16">−</button>
+                    data-id="160">−</button>
 
-            <span class="qty-value" id="qty-16">0</span>
+            <span class="qty-value" id="qty-160">0</span>
 
             <button class="btn btn-dark btn-sm qty-plus"
-                    data-id="16">+</button>
+                    data-id="160">+</button>
 
           </div>
 
@@ -331,8 +341,11 @@
        <!-- ========= ESPRESSO ========= -->
     <div class="flash-card">
         <span class="discount-badge">30% OFF</span>
+        <a href="showproduct?id=17">
+
         <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80">
-        <h6>Espresso</h6>
+        </a>
+        <h6>Flash Ispressoss</h6>
 
         <p class="price">
           <span class="new">₹399</span>
@@ -369,8 +382,11 @@
     <!-- ========= COLD BREW ========= -->
     <div class="flash-card">
         <span class="discount-badge">25% OFF</span>
+        <a href="showproduct?id=18">
+
         <img src="https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=400&q=80" loading="lazy">
-        <h6>Cold Brew</h6>
+     </a>
+        <h6>Chilled Brew</h6>
 
         <p class="price">
           <span class="new">₹299</span>
@@ -422,7 +438,7 @@
              class="promo-img mb-2" alt="Fresh Coffee">
 
         <h6 class="fw-bold text-success">Fresh Brew Deals</h6>
-       <a href="category?type=coldbrew"> <button class="btn-coffee mt-2" >
+       <a href="product"> <button class="btn-coffee mt-2" >
           Shop Now
         </button>
         </a>
@@ -480,28 +496,41 @@
 
     <div class="col-6 col-md-3">
       <div class="festival-card shiva-card">
+      <a href="showproduct?id=180">
+
         <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+    </a>
         <h6>Midnight Espresso</h6>
+
       </div>
     </div>
 
     <div class="col-6 col-md-3">
       <div class="festival-card shiva-card">
+      <a href="showproduct?id=181">
+
         <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+    </a>
         <h6>Strong Filter Coffee</h6>
       </div>
     </div>
 
     <div class="col-6 col-md-3">
       <div class="festival-card shiva-card">
+      <a href="showproduct?id=182">
+
         <img src="https://images.unsplash.com/photo-1507914372368-b2b085b925a1">
+    </a>
         <h6>Energy Booster Packs</h6>
       </div>
     </div>
 
     <div class="col-6 col-md-3">
       <div class="festival-card shiva-card">
+      <a href="showproduct?id=183">
+
         <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2">
+    </a>
         <h6>Special Combo Offers</h6>
       </div>
     </div>
@@ -531,28 +560,40 @@
 
           <div class="col-6 col-md-3">
             <div class="festival-card ramadan-card">
+            <a href="showproduct?id=184">
+
               <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096">
+          </a>
               <h6>Iftar Special Blends</h6>
             </div>
           </div>
 
           <div class="col-6 col-md-3">
             <div class="festival-card ramadan-card">
+            <a href="showproduct?id=185">
+
               <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348">
+             </a>
               <h6>Premium Dates & Coffee</h6>
             </div>
           </div>
 
           <div class="col-6 col-md-3">
             <div class="festival-card ramadan-card">
+            <a href="showproduct?id=186">
+
               <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+            </a>
               <h6>Arabic Kahwa</h6>
             </div>
           </div>
 
           <div class="col-6 col-md-3">
             <div class="festival-card ramadan-card">
+            <a href="showproduct?id=187">
+
               <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735">
+              </a>
               <h6>Gift Hampers</h6>
             </div>
           </div>
@@ -652,7 +693,10 @@
       <div class="product-card text-center">
 
         <div class="product-img">
+        <a href="showproduct?id=<?= $product['id']; ?>">
+
           <img src="<?= $product['img']; ?>" alt="<?= $product['name']; ?>">
+    </a>
         </div>
 
         <h6 class="mt-2 mb-1"><?= $product['name']; ?></h6>

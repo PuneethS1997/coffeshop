@@ -5,8 +5,8 @@ const DEFAULT_PRODUCT_DETAILS = {
   flavors: ["Chocolate", "Nutty", "Smoky"],
   brewing: ["Espresso", "French Press", "Moka Pot"],
   reviews: [
-    { name: "Rahul", rating: 5, text: "Absolutely bold and smooth!" },
-    { name: "Priya", rating: 4, text: "Strong and rich flavor." }
+    { name: "Shiva", rating: 5, text: "Absolutely bold and smooth!" },
+    { name: "Rahim", rating: 4, text: "Strong and rich flavor." }
   ],
   faq: [
     { q: "Is it whole bean?", a: "Yes, available in whole bean and ground." },
@@ -44,20 +44,70 @@ const PRODUCTS = {
     price: 399,
     img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80"
   },
+  150: {
+    name: "Flash Espresso",
+    price: 399,
+    img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80"
+  },
   16: {
     name: "Cold Brew",
+    price: 399,
+    img: "https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=400&q=80"
+  },
+  160: {
+    name: "Flash Cold Brew",
     price: 299,
     img: "https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=400&q=80"
   },
   17: {
-    name: "Espresso",
+    name: "Ispressoss",
     price: 399,
     img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80"
   },
   18: {
-    name: "Cold Brew",
+    name: "Chilled Brew",
     price: 299,
     img: "https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=400&q=80"
+  },
+  180: {
+    name: "Midnight Espresso",
+    price: 99,
+    img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93"
+  },
+  181: {
+    name: "Strong Filter Coffee",
+    price: 49,
+    img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"
+  },
+  182: {
+    name: "Energy Booster Packs",
+    price: 99,
+    img: "https://images.unsplash.com/photo-1507914372368-b2b085b925a1"
+  },
+  183: {
+    name: "Special Combo Offers",
+    price: 99,
+    img: "https://images.unsplash.com/photo-1485808191679-5f86510681a2"
+  },
+  184: {
+    name: "Iftar Special Blends",
+    price: 99,
+    img: "https://images.unsplash.com/photo-1498804103079-a6351b050096"
+  },
+  185: {
+    name: "Premium Dates & Coffee",
+    price: 99,
+    img: "https://images.unsplash.com/photo-1511920170033-f8396924c348"
+  },
+  186: {
+    name: "Arabic Kahwa",
+    price: 99,
+    img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93"
+  },
+  187: {
+    name: "Gift Hampers",
+    price: 99,
+    img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735"
   },
   21: { name: "Dark Roast", price: 499, img: "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=200&q=80" },
   22: { name: "Medium Roast", price: 459, img: "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=200&q=80" },

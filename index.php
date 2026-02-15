@@ -275,7 +275,7 @@
           </button>
 
           <!-- Quantity Box -->
-          <div class="qty-box d-none align-items-center justify-content-center gap-2">
+          <div class="quick-qty align-items-center gap-2">
 
             <button class="btn btn-outline-dark btn-sm qty-minus"
                     data-id="15">−</button>
@@ -313,7 +313,7 @@
           </button>
 
           <!-- Quantity Box -->
-          <div class="qty-box d-none align-items-center justify-content-center gap-2">
+          <div class="quick-qty align-items-center gap-2">
 
             <button class="btn btn-outline-dark btn-sm qty-minus"
                     data-id="16">−</button>
@@ -349,7 +349,7 @@
           </button>
 
           <!-- Quantity Box -->
-          <div class="qty-box d-none align-items-center justify-content-center gap-2">
+          <div class="quick-qty align-items-center gap-2">
 
             <button class="btn btn-outline-dark btn-sm qty-minus"
                     data-id="17">−</button>
@@ -387,7 +387,7 @@
           </button>
 
           <!-- Quantity Box -->
-          <div class="qty-box d-none align-items-center justify-content-center gap-2">
+          <div class="quick-qty align-items-center gap-2">
 
             <button class="btn btn-outline-dark btn-sm qty-minus"
                     data-id="18">−</button>

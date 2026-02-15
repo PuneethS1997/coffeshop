@@ -12,8 +12,120 @@ $products = [
   ["id"=>6,"name"=>"Medium Roast","price"=>459,"cat"=>"beans","img"=>"https://images.unsplash.com/photo-1541167760496-1628856ab772"],
   ["id"=>7,"name"=>"Espresso Blend","price"=>549,"cat"=>"espresso","img"=>"https://images.unsplash.com/photo-1509042239860-f550ce710b93"],
   ["id"=>8,"name"=>"Cold Brew Pack","price"=>399,"cat"=>"coldbrew","img"=>"https://images.unsplash.com/photo-1521302080334-4bebac2763a6"],
+  ["id"=>9,"name"=>"Dark Roast","price"=>499,"cat"=>"beans","img"=>"https://images.unsplash.com/photo-1511920170033-f8396924c348"],
+  ["id"=>10,"name"=>"Medium Roast","price"=>459,"cat"=>"beans","img"=>"https://images.unsplash.com/photo-1541167760496-1628856ab772"],
+  ["id"=>11,"name"=>"Espresso Blend","price"=>549,"cat"=>"espresso","img"=>"https://images.unsplash.com/photo-1509042239860-f550ce710b93"],
+  ["id"=>12,"name"=>"Cold Brew Pack","price"=>399,"cat"=>"coldbrew","img"=>"https://images.unsplash.com/photo-1521302080334-4bebac2763a6"],
+  ["id"=>13,"name"=>"Dark Roast","price"=>499,"cat"=>"beans","img"=>"https://images.unsplash.com/photo-1511920170033-f8396924c348"],
+  ["id"=>14,"name"=>"Medium Roast","price"=>459,"cat"=>"beans","img"=>"https://images.unsplash.com/photo-1541167760496-1628856ab772"],
+  ["id"=>15,"name"=>"Espresso Blend","price"=>549,"cat"=>"espresso","img"=>"https://images.unsplash.com/photo-1509042239860-f550ce710b93"],
+  ["id"=>16,"name"=>"Cold Brew Pack","price"=>399,"cat"=>"coldbrew","img"=>"https://images.unsplash.com/photo-1521302080334-4bebac2763a6"],
 ];
 ?>
+
+<style>
+  /* =============== CATEGORY LAYOUT =============== */
+
+.category-section {
+  margin-top: 2rem;
+}
+
+/* Sidebar */
+.filter-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 100px;
+}
+
+/* Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Product Card */
+.product-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: 0.3s ease;
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-img {
+  height: 180px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.price {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Quick action spacing */
+.quick-action {
+  margin-top: 10px;
+}
+
+/* Mobile Improvements */
+@media (max-width: 768px) {
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-img {
+    height: 150px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.category-scroll {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.cat-card {
+  min-width: 90px;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+}
+
+.cat-card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+</style>
+
 
 <section class="category-hero container " style="margin-top:8rem !important;">
   <div class="hero-banner">
@@ -132,134 +244,131 @@ $products = [
 </section>
 
 
-<section class="container my-4">
+<section class="container my-4 category-section">
+
   <div class="row">
 
-    <!-- ================= SIDEBAR FILTER ================= -->
-    <aside class="col-md-3 col-lg-2 d-none d-md-block">
-      <div class="filter-sidebar p-3 bg-white rounded shadow-sm">
+    <!-- ================= FILTER SIDEBAR ================= -->
+    <aside class="col-lg-3 d-none d-lg-block">
+      <div class="filter-card">
+
         <h6 class="fw-bold mb-3">Filters</h6>
-        <button class="btn position-relative">
-            Filters
-            <span id="filter-count"
-                    class="badge bg-danger position-absolute top-0 start-100 translate-middle d-none">
-                0
-            </span>
-            </button>
 
+        <div class="mb-4">
+          <strong>Price</strong>
 
-        <!-- PRICE -->
-        <div class="mb-3">
-          <strong class="d-block mb-2">Price</strong>
-          <div class="form-check">
+          <div class="form-check mt-2">
             <input class="form-check-input price-filter" type="radio" name="price" value="all" checked>
             <label class="form-check-label">All</label>
           </div>
+
           <div class="form-check">
             <input class="form-check-input price-filter" type="radio" name="price" value="low">
             <label class="form-check-label">Below ₹500</label>
           </div>
+
           <div class="form-check">
             <input class="form-check-input price-filter" type="radio" name="price" value="premium">
             <label class="form-check-label">Above ₹500</label>
           </div>
         </div>
 
-        <!-- ROAST TYPE -->
-        <div class="mb-3">
-          <strong class="d-block mb-2">Roast Type</strong>
-          <div class="form-check">
+        <div>
+          <strong>Roast Type</strong>
+
+          <div class="form-check mt-2">
             <input class="form-check-input roast-filter" type="checkbox" value="light">
             <label class="form-check-label">Light</label>
           </div>
+
           <div class="form-check">
             <input class="form-check-input roast-filter" type="checkbox" value="medium">
             <label class="form-check-label">Medium</label>
           </div>
+
           <div class="form-check">
             <input class="form-check-input roast-filter" type="checkbox" value="dark">
             <label class="form-check-label">Dark</label>
           </div>
         </div>
+
       </div>
     </aside>
 
-    <!-- <div id="active-filters" class="d-flex gap-2 flex-wrap mb-3"></div> -->
 
     <!-- ================= PRODUCTS ================= -->
-    <main class="col-md-9 col-lg-10">
+    <main class="col-lg-9">
 
-      <h5 class="fw-bold text-capitalize mb-3"><?= $type ?> products</h5>
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="fw-bold text-capitalize mb-0"><?= $type ?> Products</h5>
 
-      <!-- Sticky Category Tabs -->
-      <div class="sticky-top bg-light py-2 mb-3" style="z-index:1020">
-        <div class="d-flex gap-2 overflow-auto">
-          <button class="cat-tab active" data-cat="all">All</button>
-          <button class="cat-tab" data-cat="beans">Beans</button>
-          <button class="cat-tab" data-cat="espresso">Espresso</button>
-          <button class="cat-tab" data-cat="coldbrew">Cold Brew</button>
-        </div>
+        <button class="btn btn-outline-dark d-lg-none"
+                onclick="openFilterDrawer()">
+          Filters
+        </button>
       </div>
 
       <!-- Search -->
       <input
         type="text"
         id="searchInput"
-        class="form-control mb-3"
+        class="form-control mb-4"
         placeholder="Search coffee..."
       >
 
-      <!-- only for mobile -->
-      <button class="btn btn-dark w-100 d-md-none mb-3" onclick="openFilterDrawer()">
-  🔍 Filters
-        </button>
+      <!-- PRODUCT GRID -->
+      <div class="product-grid" id="productGrid">
 
-      <!-- Product Grid -->
-      <div class="row g-3" id="productGrid">
         <?php foreach ($products as $p): ?>
           <?php if ($p['cat'] === $type): ?>
-            <div
-              class="col-6 col-md-4 col-lg-3 product-item"
-              data-cat="<?= $p['cat']; ?>"
-              data-name="<?= strtolower($p['name']); ?>"
-              data-price="<?= $p['price']; ?>"
-            >
-              <div class="product-card h-100 p-2 bg-white rounded shadow-sm text-center">
-                <div class="product-img mb-2">
-                  <img
-                    src="<?= $p['img']; ?>?auto=format&fit=crop&w=400&q=80"
-                    class="img-fluid rounded"
-                  >
-                </div>
 
-                <h6 class="mb-1"><?= $p['name']; ?></h6>
-                <p class="fw-bold mb-2">₹<?= $p['price']; ?></p>
+          <div class="product-item"
+               data-cat="<?= $p['cat']; ?>"
+               data-name="<?= strtolower($p['name']); ?>"
+               data-price="<?= $p['price']; ?>">
 
-                <div class="qty-box d-flex justify-content-center gap-2">
-                  <button
-                    class="btn btn-outline-dark btn-sm qty-minus"
-                    data-id="<?= $p['id']; ?>"
-                  >−</button>
+            <div class="product-card">
+
+              <div class="product-img">
+              <a href="showproduct?id=<?= $p['id']; ?>">
+                <img src="<?= $p['img']; ?>?auto=format&fit=crop&w=400&q=80">
+              </a>
+              </div>
+
+              <h6><?= $p['name']; ?></h6>
+              <p class="price">₹<?= $p['price']; ?></p>
+
+              <div class="quick-action" id="cart-action-<?= $p['id']; ?>">
+
+                <button class="btn btn-dark btn-sm add-to-cart-btn"
+                        data-id="<?= $p['id']; ?>">
+                  Add to Cart
+                </button>
+
+                <div class="quick-qty d-none align-items-center gap-2">
+                  <button class="btn btn-outline-dark btn-sm qty-minus"
+                          data-id="<?= $p['id']; ?>">−</button>
 
                   <span id="qty-<?= $p['id']; ?>">0</span>
 
-                  <button
-                    class="btn btn-dark btn-sm qty-plus"
-                    data-id="<?= $p['id']; ?>"
-                  >+</button>
+                  <button class="btn btn-dark btn-sm qty-plus"
+                          data-id="<?= $p['id']; ?>">+</button>
                 </div>
+
               </div>
+
             </div>
+
+          </div>
+
           <?php endif; ?>
         <?php endforeach; ?>
-      </div>
 
-      <!-- ================= RECOMMENDATIONS ================= -->
-      <h5 class="fw-bold mt-4">You may also like</h5>
-      <div id="recommend-box" class="row g-3"></div>
+      </div>
 
     </main>
   </div>
 </section>
+
 
 <?php include 'includes/footer.php'; ?>

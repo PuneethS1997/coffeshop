@@ -34,7 +34,7 @@ $css_version = file_exists($css_file) ? filemtime($css_file) : time();
     <div id="nav" class="collapse navbar-collapse">
       <ul class="navbar-nav ms-auto">
       <li class="nav-item"><a class="nav-link" href="<?= $BASE_URL ?>about-us">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="<?= $BASE_URL ?>product">Shop</a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= $BASE_URL ?>product">Products</a></li>
         <li class="nav-item"><a class="nav-link" href="<?= $BASE_URL ?>login">Login</a></li>
         <li class="nav-item">
         <a href="<?= $BASE_URL ?>cart" class="position-relative text-dark text-decoration-none">

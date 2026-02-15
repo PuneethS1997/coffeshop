@@ -3,6 +3,23 @@
 <div class="container mt-5 pt-5" style="max-width:600px;">
   <h3 class="mb-4">Checkout</h3>
 
+  <div class="checkout-product-card" id="buy-now-section" style="display:none;">
+
+<div class="checkout-product">
+  <img id="checkout-product-image" src="" alt="" width="100">
+
+  <div class="checkout-details">
+    <h4 id="checkout-product-name"></h4>
+    <p>Price: ₹<span id="checkout-product-price"></span></p>
+    <p>Quantity: <span id="checkout-product-qty"></span></p>
+    <h5>Total: ₹<span id="checkout-product-total"></span></h5>
+  </div>
+</div>
+
+</div>
+
+
+
   <form id="checkout-form">
     <input id="fullName" class="form-control mb-3" placeholder="Full Name" required>
     <input id="address" class="form-control mb-3" placeholder="Address" required>
@@ -19,26 +36,18 @@
 
 <!-- Razorpay Script -->
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-
 <script>
-
-function clearCartAfterPayment() {
+  function clearCartAfterPayment() {
   localStorage.removeItem("cart_" + CART_VERSION);
-  localStorage.removeItem("checkout_total"); // optional (if still used)
-
-  // Reset in-memory cart
   cart = {};
-
-  // Update UI everywhere
   updateNavbarCartCount();
-  updateMobileCartBar();
-  renderCartDrawer();
-  renderCartPage();
 }
+
 document.addEventListener("DOMContentLoaded", function () {
 
+  renderCartPage();
+
   const total = getTotalPrice();
-document.getElementById("checkout-total").innerText = total;
 
   if (!total || total <= 0) {
     alert("Cart is empty!");
@@ -46,40 +55,58 @@ document.getElementById("checkout-total").innerText = total;
     return;
   }
 
+ 
+
+
   document.getElementById("checkout-total").innerText = total;
 
+  console.log("Cart:", cart);
+console.log("Total:", getTotalPrice());
+
   document.getElementById("checkout-form").addEventListener("submit", function(e) {
+
     e.preventDefault();
 
     const name = document.getElementById("fullName").value;
-    const address = document.getElementById("address").value;
 
     var options = {
-      "key": "rzp_test_1DP5mmOlF5G5ag", // 🔥 Replace with your key
-      "amount": total * 100, // Razorpay uses paise
+      "key": "rzp_test_1DP5mmOlF5G5ag",
+      "amount": total * 100,
       "currency": "INR",
       "name": "Your Coffee Store",
       "description": "Coffee Purchase",
-      "image": "https://yourlogo.com/logo.png",
-      "handler": function (response) {
+      handler: function (response) {
 
-        alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+if (response.razorpay_payment_id) {
 
-        // Clear cart after successful payment
-       
-    // ✅ Payment successful
-    if (response.razorpay_payment_id) {
-   clearCartAfterPayment();
+  const isBuyNow = localStorage.getItem("buy_now_mode");
+
+  if (isBuyNow === "true") {
+
+    // Restore old cart if backup exists
+    const backup = localStorage.getItem("temp_cart_backup");
+
+    if (backup) {
+      localStorage.setItem("cart_" + CART_VERSION, backup);
+      localStorage.removeItem("temp_cart_backup");
+    } else {
+      localStorage.removeItem("cart_" + CART_VERSION);
+    }
+
+    localStorage.removeItem("buy_now_mode");
+
+  } else {
+    // Normal checkout → clear cart
+    localStorage.removeItem("cart_" + CART_VERSION);
+  }
+
 }
 
-        window.location.href = "success"; // create success page
-      },
-      "prefill": {
-        "name": name
-      },
-      "theme": {
-        "color": "#6F4E37"
-      }
+window.location.href = "success";
+}
+,
+      "prefill": { "name": name },
+      "theme": { "color": "#6F4E37" }
     };
 
     var rzp = new Razorpay(options);
@@ -87,6 +114,10 @@ document.getElementById("checkout-total").innerText = total;
   });
 
 });
+
 </script>
+
+
+
 
 <?php include 'includes/footer.php'; ?>

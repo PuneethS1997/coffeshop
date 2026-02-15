@@ -33,10 +33,14 @@
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  localStorage.removeItem("cart_" + CART_VERSION);
-  localStorage.removeItem("checkout_total");
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//   localStorage.removeItem("cart_" + CART_VERSION);
+//   localStorage.removeItem("checkout_total");
+// });
+
+// localStorage.removeItem("buy_now");
+// cart = {};
+// saveCart();
 
 
   setTimeout(function(){

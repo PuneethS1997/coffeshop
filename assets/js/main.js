@@ -1,5 +1,18 @@
-console.log("FifthGen UI Loaded");
 
+
+const DEFAULT_PRODUCT_DETAILS = {
+  description: "Bold, smoky, full-bodied coffee crafted for strong brew lovers.",
+  flavors: ["Chocolate", "Nutty", "Smoky"],
+  brewing: ["Espresso", "French Press", "Moka Pot"],
+  reviews: [
+    { name: "Rahul", rating: 5, text: "Absolutely bold and smooth!" },
+    { name: "Priya", rating: 4, text: "Strong and rich flavor." }
+  ],
+  faq: [
+    { q: "Is it whole bean?", a: "Yes, available in whole bean and ground." },
+    { q: "How fresh is it?", a: "Roasted within 3 days of shipping." }
+  ]
+};
 
 
 // ================= PRODUCTS =================
@@ -61,12 +74,24 @@ const PRODUCTS = {
 
 
 
+// Extend all products with default details
+Object.keys(PRODUCTS).forEach(id => {
+  PRODUCTS[id] = {
+    id: id,
+    ...DEFAULT_PRODUCT_DETAILS,
+    ...PRODUCTS[id]
+  };
+});
 
 
 // ================= CART =================
-const CART_VERSION = "v4"; // change when cart logic structure changes
+const CART_VERSION = "v5"; // change when cart logic structure changes
 
-let cart = JSON.parse(localStorage.getItem("cart_" + CART_VERSION)) || {};
+let cart = JSON.parse(localStorage.getItem("cart_" + CART_VERSION));
+
+if (!cart || typeof cart !== "object") {
+  cart = {};
+}
 
 // ================= HELPERS =================
 function saveCart() {
@@ -74,23 +99,49 @@ function saveCart() {
 }
 
 
+// function getTotalCount() {
+//   return Object.values(cart).reduce((a, b) => {
+//     return a + (typeof b === "number" ? b : 0);
+//   }, 0);
+// }
+
 function getTotalCount() {
   return Object.values(cart).reduce((a, b) => a + b, 0);
 }
 
+
+
+// function getTotalPrice() {
+//   let total = 0;
+
+//   for (let id in cart) {
+//     const product = PRODUCTS[id];
+
+//     if (!product) continue; // 🔥 prevent crash
+
+//     total += product.price * cart[id];
+//   }
+
+//   return total;
+// }
+
 function getTotalPrice() {
+
   let total = 0;
 
   for (let id in cart) {
+
     const product = PRODUCTS[id];
+    const qty = parseInt(cart[id]);
 
-    if (!product) continue; // 🔥 prevent crash
-
-    total += product.price * cart[id];
+    if (product && qty > 0) {
+      total += product.price * qty;
+    }
   }
 
   return total;
 }
+
 
 
 // ================= UI UPDATES =================
@@ -161,40 +212,37 @@ document.addEventListener("click", function (e) {
 
   let id;
 
-  // ADD BUTTON CLICK
   if (addBtn) {
-    id = addBtn.dataset.id;
+    id = String(addBtn.dataset.id).trim();
+    if (!PRODUCTS[id]) return;   // 🔥 prevent invalid id
     cart[id] = 1;
   }
 
-  // PLUS CLICK
   if (plus) {
-    id = plus.dataset.id;
+    id = String(plus.dataset.id).trim();
+    if (!PRODUCTS[id]) return;
     cart[id] = (cart[id] || 0) + 1;
   }
 
-  // MINUS CLICK
   if (minus) {
-    id = minus.dataset.id;
+    id = String(minus.dataset.id).trim();
+    if (!PRODUCTS[id]) return;
+
     if (!cart[id]) return;
     cart[id]--;
     if (cart[id] === 0) delete cart[id];
   }
 
-  // SAVE
-  // localStorage.setItem("cart", JSON.stringify(cart));
-  localStorage.setItem("cart_" + CART_VERSION, JSON.stringify(cart));
+  saveCart(); // use your helper instead of repeating
 
-
-  // 🔥 SYNC EVERYTHING
   updateQtyUI();
   updateNavbarCartCount();
   updateMobileCartBar();
   renderCartDrawer();
   renderCartPage();
   renderRecommendations();
-
 });
+
 
 
 // ================= INIT =================
@@ -612,22 +660,7 @@ function renderFilterChips(filters) {
     }));
   });
 }
-// function renderFilterChips(filters) {
-//   const box = document.getElementById("active-filters");
-//   box.innerHTML = "";
 
-//   if (filters.price !== "all") {
-//     box.appendChild(createChip(`Price: ${filters.price}`, () => {
-//       clearPriceFilter();
-//     }));
-//   }
-
-//   filters.roasts.forEach(r => {
-//     box.appendChild(createChip(r, () => {
-//       removeRoast(r);
-//     }));
-//   });
-// }
 
 function renderFilterChips(filters) {
   const box = document.getElementById("active-filters");
@@ -886,40 +919,17 @@ function renderProducts(productList) {
     const card = document.createElement("div");
     // card.className = "product-card product-item";
 
-    // card.innerHTML = `
-    //   <div class="product-image">
-    //     <img src="${product.img}" alt="${product.name}">
-    //   </div>
-
-    //   <div class="product-info">
-    //     <h4 class="product-title">${product.name}</h4>
-
-        
-
-    //     <div class="price-row">
-    //       <strong class="fw-semibold mb-2">₹${product.price}</strong>
-
-    //       <div id="cart-action-${product.id}">
-    //         <button class="btn btn-dark btn-sm add-to-cart-btn" data-id="${product.id}">
-    //           Add to Cart
-    //         </button>
-
-    //         <div class="quick-qty d-none">
-    //           <button class="btn btn-outline-dark btn-sm qty-minus" data-id="${product.id}">−</button>
-    //           <span id="qty-${product.id}">0</span>
-    //           <button class="btn btn-outline-dark btn-sm qty-plus" data-id="${product.id}">+</button>
-    //         </div>
-    //       </div>
-
-    //     </div>
-    //   </div>
-    // `;
+   
 
     card.innerHTML = `
+
     <div class="product-card text-center">
 
-        <div class="product-img">
-          <img src="${product.img}" alt="${product.name}">
+    <div class="product-img">
+    <a href="showproduct?id=${product.id}">
+    <img src="${product.img}" alt="${product.name}">
+    </a>
+
         </div>
 
         <h6 class="mt-2 mb-1">${product.name}</h6>
@@ -1021,3 +1031,46 @@ document.addEventListener("DOMContentLoaded", function () {
     ?.addEventListener("change", applyFilters);
 
 });
+
+
+
+
+document.addEventListener("click", function (e) {
+
+  const btn = e.target.closest("#buy-now-btn");
+  if (!btn) return;
+
+  const id = String(btn.dataset.id).trim();
+  if (!PRODUCTS[id]) return;
+
+  // Get quantity from span
+  const qtySpan = document.getElementById("qty-" + id);
+
+  let qty = 1;
+  if (qtySpan) {
+    qty = parseInt(qtySpan.innerText);
+    if (isNaN(qty) || qty <= 0) qty = 1;
+  }
+
+  // 🔥 Backup existing cart
+  const existingCart = localStorage.getItem("cart_" + CART_VERSION);
+  if (existingCart) {
+    localStorage.setItem("temp_cart_backup", existingCart);
+  }
+
+  // 🔥 Replace cart with only this product
+  const buyNowCart = {};
+  buyNowCart[id] = qty;
+
+  localStorage.setItem("cart_" + CART_VERSION, JSON.stringify(buyNowCart));
+  localStorage.setItem("buy_now_mode", "true");
+
+  window.location.href = "checkout.php";
+});
+
+
+
+
+
+
+
